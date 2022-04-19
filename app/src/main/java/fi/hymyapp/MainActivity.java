@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         {
             pathNumber+=1;
         }else{
-            Log.d(TAG, "Se oli vika kysymys");
+            Log.d(TAG, "Se oli vika kysymys paskaa");
             return;
         }
 
