@@ -21,26 +21,38 @@
         app:layout_constraintVertical_bias="0.189" />
 
     <Button
-        android:id="@+id/trueButton"
+        android:id="@+id/option1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="388dp"
-        android:onClick="TrueButton"
+        android:onClick="Option1"
         android:text="Totta"
-        app:layout_constraintEnd_toStartOf="@+id/falseButton"
+        app:layout_constraintEnd_toStartOf="@+id/option2Button"
         app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/falseButton"
+        android:id="@+id/option2Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="388dp"
-        android:layout_marginEnd="48dp"
-        android:onClick="FalseButton"
+        android:layout_marginEnd="168dp"
+        android:onClick="Option2"
         android:text="Paskaa"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/option3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="388dp"
+        android:onClick="Option3"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toEndOf="@+id/option2Button"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
