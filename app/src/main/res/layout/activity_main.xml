@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/teematListView"
+        android:id="@+id/themesListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:soundEffectsEnabled="false" />

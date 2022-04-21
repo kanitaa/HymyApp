@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Singleton {
-    private List<Teemat> teematList;
+    private List<Themes> themesList;
     private static final Singleton ourInstance = new Singleton();
 
 
@@ -12,10 +12,10 @@ public class Singleton {
         return ourInstance;
     }
     private Singleton(){
-        teematList=new ArrayList<>();
-        teematList.add(new Teemat("Teema1"));
+        themesList=new ArrayList<>();
+        themesList.add(new Themes("Teema1"));
 
     }
-    public List<Teemat> getTeemat(){return teematList;}
+    public List<Themes> getThemes(){return themesList;}
 
 }
