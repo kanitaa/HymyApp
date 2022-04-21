@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
 import android.widget.ListView;
 
 
@@ -40,5 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void OpenChart(View view){
+        Intent nextActivity=new Intent(MainActivity.this,ChartActivity.class);
+
+        startActivity(nextActivity);
+    }
 
 }
