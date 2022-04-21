@@ -2,6 +2,7 @@ package fi.hymyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Bundle;
@@ -104,6 +105,9 @@ public class GameActivity extends AppCompatActivity {
             pathNumber+=1;
         }else{
             Log.d(TAG, "Se oli vika kysymys paskaa");
+            Intent lastActivity = new Intent(GameActivity.this,ResultsActivity.class);
+            startActivity(lastActivity);
+
             return;
         }
 
