@@ -2,6 +2,7 @@ package fi.hymyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Binder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class GameActivity extends AppCompatActivity {
+
+
 
     String questionText;
     TextView questionView;
@@ -34,12 +37,17 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game);
 
 
         questionView = (TextView) findViewById(R.id.questionText);
         ReadDataFromFirebase();
         Log.d(TAG, qRef.toString());
+
+
+
+
+
 
 
     }
