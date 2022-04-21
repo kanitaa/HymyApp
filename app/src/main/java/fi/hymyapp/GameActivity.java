@@ -21,30 +21,39 @@ public class GameActivity extends AppCompatActivity {
 
     String questionText;
     TextView questionView;
+
+    String dbpath;
     int pathNumber=1;
+
     private static final String TAG ="asd" ;
     public int op1Value;
     public int op2Value;
     public int op3Value;
     public int totalValue;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app/");
-    DatabaseReference op1Counter = database.getReference("involvementQuestions/question1/zOp1Count");
-    DatabaseReference op2Counter = database.getReference("involvementQuestions/question1/zOp2Count");
-    DatabaseReference op3Counter = database.getReference("involvementQuestions/question1/zOp3Count");
-    DatabaseReference totalCounter = database.getReference("involvementQuestions/question1/zTotalCount");
 
-    DatabaseReference qRef = database.getReference("involvementQuestions/question1/aStatement");
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app/");
+    DatabaseReference op1Counter;
+    DatabaseReference op2Counter;
+    DatabaseReference op3Counter;
+    DatabaseReference totalCounter;
+
+    DatabaseReference statement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
+        dbpath ="se teksti mikä tuodaan intentillä";
+        op1Counter = database.getReference(dbpath+"/question1/zOp1Count");
+        op2Counter = database.getReference(dbpath+"/question1/zOp2Count");
+        op3Counter = database.getReference(dbpath+"/question1/zOp3Count");
+        totalCounter = database.getReference(dbpath+"/question1/zTotalCount");
+        statement = database.getReference(dbpath+"question1/aStatement");
 
         questionView = (TextView) findViewById(R.id.questionText);
         ReadDataFromFirebase();
-        Log.d(TAG, qRef.toString());
 
 
 
@@ -98,12 +107,12 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-        String path = "involvementQuestions/question"+pathNumber;
-        qRef =database.getReference(path+"/aStatement");
-        op1Counter = database.getReference(path+"/zOp1Count");
-        op2Counter = database.getReference(path+"/zOp2Count");
-        op3Counter = database.getReference(path+"/zOp3Count");
-        totalCounter = database.getReference(path+"/zTotalCount");
+        dbpath = dbpath+"/question"+pathNumber;
+        statement =database.getReference(dbpath+"/aStatement");
+        op1Counter = database.getReference(dbpath+"/zOp1Count");
+        op2Counter = database.getReference(dbpath+"/zOp2Count");
+        op3Counter = database.getReference(dbpath+"/zOp3Count");
+        totalCounter = database.getReference(dbpath+"/zTotalCount");
 
 
         ReadDataFromFirebase();
@@ -111,7 +120,7 @@ public class GameActivity extends AppCompatActivity {
     public void ReadDataFromFirebase(){
 
         //QUESTION TEXT
-        qRef.addValueEventListener(new ValueEventListener() {
+        statement.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
