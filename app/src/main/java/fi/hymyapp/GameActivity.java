@@ -44,6 +44,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        Bundle b = getIntent().getExtras();
+        int i =b.getInt(MainActivity.EXTRA,0);
 
         dbpath ="se teksti mikä tuodaan intentillä";
         op1Counter = database.getReference(dbpath+"/question1/zOp1Count");

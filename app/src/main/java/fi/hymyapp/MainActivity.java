@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA = "com.example.myfirstapp.MESSAGE";
 
 
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 mp.start();
                 Intent nextActivity=new Intent(MainActivity.this,GameActivity.class);
+                nextActivity.putExtra(EXTRA,i);
                 startActivity(nextActivity);
             }
         });

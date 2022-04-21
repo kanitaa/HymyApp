@@ -14,6 +14,7 @@ public class Singleton {
     private Singleton(){
         themesList=new ArrayList<>();
         themesList.add(new Themes("Teema1"));
+        themesList.add(new Themes("Teema2"));
 
     }
     public List<Themes> getThemes(){return themesList;}
