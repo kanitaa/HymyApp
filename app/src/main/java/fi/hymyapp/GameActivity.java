@@ -47,7 +47,7 @@ public class GameActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         int i =b.getInt(MainActivity.EXTRA,0);
 
-        dbpath ="se teksti mikä tuodaan intentillä";
+        dbpath =Singleton.getInstance().getThemes().get(i).getDatapath();
         op1Counter = database.getReference(dbpath+"/question1/zOp1Count");
         op2Counter = database.getReference(dbpath+"/question1/zOp2Count");
         op3Counter = database.getReference(dbpath+"/question1/zOp3Count");

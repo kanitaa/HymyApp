@@ -13,8 +13,8 @@ public class Singleton {
     }
     private Singleton(){
         themesList=new ArrayList<>();
-        themesList.add(new Themes("Teema1"));
-        themesList.add(new Themes("Teema2"));
+        themesList.add(new Themes("Teema1","involvementQuestions"));
+        themesList.add(new Themes("Teema2","rightsQuestions"));
 
     }
     public List<Themes> getThemes(){return themesList;}

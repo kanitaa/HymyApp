@@ -14,4 +14,7 @@ public class Themes {
         return name;
     }
 
+    public String getDatapath(){
+        return path;
+    }
 }
