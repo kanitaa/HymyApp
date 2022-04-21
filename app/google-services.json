@@ -1,92 +1,34 @@
 {
   "project_info": {
-    "project_number": "742193375840",
-    "firebase_url": "https://sovellus-4af70-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "sovellus-4af70",
-    "storage_bucket": "sovellus-4af70.appspot.com"
+    "project_number": "881660026819",
+    "firebase_url": "https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "hymyapp",
+    "storage_bucket": "hymyapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:742193375840:android:0fae9873eef21ef4707105",
-        "android_client_info": {
-          "package_name": "com.example.firebasetest"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDavfHJvhG2x2Ew75_FysbIp_TuxMEyV0k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:742193375840:android:042f89076b5f88b8707105",
-        "android_client_info": {
-          "package_name": "com.example.sovellus"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDavfHJvhG2x2Ew75_FysbIp_TuxMEyV0k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:742193375840:android:e7c3ffbd8370fd56707105",
+        "mobilesdk_app_id": "1:881660026819:android:213aea847a91bc1211a776",
         "android_client_info": {
           "package_name": "fi.hymyapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
+          "client_id": "881660026819-cikceab8q1mlovdv270j4nc2d0f8pq0q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDavfHJvhG2x2Ew75_FysbIp_TuxMEyV0k"
+          "current_key": "AIzaSyCVMvlef8qVKfADAFtSy1LuwhnH47Z8bmw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "742193375840-d5a6jnur6ufjqqt7g9urqkdgmm3balc1.apps.googleusercontent.com",
+              "client_id": "881660026819-cikceab8q1mlovdv270j4nc2d0f8pq0q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -19,45 +19,57 @@ public class MainActivity extends AppCompatActivity {
     TextView questionView;
     int pathNumber=1;
     private static final String TAG ="asd" ;
-    public int trueValue;
-    public int falseValue;
+    public int op1Value;
+    public int op2Value;
+    public int op3Value;
     public int totalValue;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://sovellus-4af70-default-rtdb.europe-west1.firebasedatabase.app/");
-    DatabaseReference trueCounter = database.getReference("questions/question1/zOp1Count");
-    DatabaseReference falseCounter = database.getReference("questions/question1/zOp2Count");
-    DatabaseReference totalCounter = database.getReference("questions/question1/zTotalCount");
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app/");
+    DatabaseReference op1Counter = database.getReference("involvementQuestions/question1/zOp1Count");
+    DatabaseReference op2Counter = database.getReference("involvementQuestions/question1/zOp2Count");
+    DatabaseReference op3Counter = database.getReference("involvementQuestions/question1/zOp3Count");
+    DatabaseReference totalCounter = database.getReference("involvementQuestions/question1/zTotalCount");
 
-    DatabaseReference qRef = database.getReference("questions/question1/aStatement");
+    DatabaseReference qRef = database.getReference("involvementQuestions/question1/aStatement");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         questionView = (TextView) findViewById(R.id.questionText);
         ReadDataFromFirebase();
-
+        Log.d(TAG, qRef.toString());
 
 
     }
 
-    public void TrueButton(View view){
-        int newValue = trueValue+1;
-        trueCounter.setValue(newValue);
+   public void Option1(View view){
+        int newValue = op1Value+1;
+        op1Counter.setValue(newValue);
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
         ChangeQuestion();
     }
-    public void FalseButton(View view){
-        int newValue =falseValue+1;
-        falseCounter.setValue(newValue);
+    public void Option2(View view){
+        int newValue =op2Value+1;
+        op2Counter.setValue(newValue);
+        newValue = totalValue+1;
+        totalCounter.setValue(newValue);
+
+        ChangeQuestion();
+    }
+    public void Option3(View view){
+        int newValue = op3Value+1;
+        op3Counter.setValue(newValue);
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
         ChangeQuestion();
     }
     public void ChangeQuestion(){
-        if(pathNumber!=10)
+        if(pathNumber!=2)
         {
             pathNumber+=1;
         }else{
@@ -67,10 +79,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        String path = "questions/question"+pathNumber;
+        String path = "involvementQuestions/question"+pathNumber;
         qRef =database.getReference(path+"/aStatement");
-        trueCounter = database.getReference(path+"/zOp1Count");
-        falseCounter = database.getReference(path+"/zOp2Count");
+        op1Counter = database.getReference(path+"/zOp1Count");
+        op2Counter = database.getReference(path+"/zOp2Count");
+        op3Counter = database.getReference(path+"/zOp3Count");
         totalCounter = database.getReference(path+"/zTotalCount");
 
 
@@ -78,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void ReadDataFromFirebase(){
 
-
+        //QUESTION TEXT
         qRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -98,14 +111,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // Read from the database
-        trueCounter.addValueEventListener(new ValueEventListener() {
+        // Read from the database OPTION1
+       op1Counter.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                trueValue = dataSnapshot.getValue(Integer.class);
-                Log.d(TAG, "True Value is: " + trueValue);
+                op1Value = dataSnapshot.getValue(Integer.class);
+                Log.d(TAG, "Option1 Value is: " + op1Value);
 
 
             }
@@ -117,14 +130,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Read from the database
-        falseCounter.addValueEventListener(new ValueEventListener() {
+        // Read from the database OPTION2
+        op2Counter.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                falseValue = dataSnapshot.getValue(Integer.class);
-                Log.d(TAG, "False Value is: " + falseValue);
+               op2Value = dataSnapshot.getValue(Integer.class);
+                Log.d(TAG, "Option2 Value is: " + op2Value);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        // Read from the database OPTION3
+        op3Counter.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                op3Value = dataSnapshot.getValue(Integer.class);
+                Log.d(TAG, "Option3 Value is: " + op3Value);
 
 
             }
@@ -136,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Read from the database
+        // Read from the database TOTAL COUNTER
         totalCounter.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
