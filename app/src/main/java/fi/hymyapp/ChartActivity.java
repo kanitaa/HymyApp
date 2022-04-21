@@ -1,18 +1,19 @@
 package fi.hymyapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static fi.hymyapp.MainActivity.EXTRA;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
+import android.widget.TextView;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.Chart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +32,7 @@ public class ChartActivity extends AppCompatActivity {
     DatabaseReference op3Counter;
     DatabaseReference totalCounter;
     DatabaseReference statement;
-    String dbpath = "involvementQuestions";
+    String dbpath;
     int pathNumber =1;
     //init values for data you want to access, make their value = database value later
     public int op1Value;
@@ -42,11 +43,15 @@ public class ChartActivity extends AppCompatActivity {
 
     ArrayList barArrayList;
     BarChart barChart;
+
+
+    Score score;
+    TextView scoreView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
-
+        dbpath = GameActivity.DATAPATH;
         op1Counter = database.getReference(dbpath+"/question1/zOp1Count");
         op2Counter = database.getReference(dbpath+"/question1/zOp2Count");
         op3Counter = database.getReference(dbpath+"/question1/zOp3Count");
@@ -57,6 +62,16 @@ public class ChartActivity extends AppCompatActivity {
 
         barChart = findViewById(R.id.barchart);
 
+        scoreView = (TextView) findViewById(R.id.scoreText);
+
+        //get score from previous activity
+        Bundle b = getIntent().getExtras();
+        String scoreAmount =b.getString(EXTRA,"");
+        // and set it to final screen
+        score = new Score(Integer.parseInt(scoreAmount));
+        scoreView.setText(score.checkResult());
+
+
 
 
     }
@@ -66,20 +81,43 @@ public class ChartActivity extends AppCompatActivity {
     public void setChart(View view){
         drawChart();
         updateFirebase();
+        scoreView.setText(statementText);
     }
     private void drawChart(){
+        //remove old chart
         barChart.removeAllViews();
-        System.out.println(statementText);
+
+        //create new bar chart with database values
         barArrayList = new ArrayList();
-        barArrayList.add(new BarEntry(2f,op1Value));
-        barArrayList.add(new BarEntry(3f,op2Value));
-        barArrayList.add(new BarEntry(4f,op3Value));
+        barArrayList.add(new BarEntry(1f,op1Value));
+        barArrayList.add(new BarEntry(2f,op2Value));
+        barArrayList.add(new BarEntry(3f,op3Value));
 
 
 
-        BarDataSet barDataSet = new BarDataSet(barArrayList,statementText);
+        BarDataSet barDataSet = new BarDataSet(barArrayList,"Yht "+Integer.toString(totalValue));
         BarData barData = new BarData(barDataSet);
+
+        //change option values into integer (they're float without this)
+        ValueFormatter vf = new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return ""+(int)value;
+            }
+        };
+        barData.setValueFormatter(vf);
         barChart.setData(barData);
+
+
+
+        //top of the chart, 3 label amount because 3 answer options
+        XAxis valAxis = barChart.getXAxis();
+        valAxis.setLabelCount(3);
+        //set values for labels here
+        valAxis.setValueFormatter(new MyAxisFormatter());
+        valAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+
         //color bar data set
         barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         //text color
@@ -90,6 +128,34 @@ public class ChartActivity extends AppCompatActivity {
 
 
 
+        barChart.invalidate(); // refresh
+
+
+
+
+
+
+
+
+    }
+
+
+    //set values for labels
+    private class MyAxisFormatter extends ValueFormatter {
+
+
+        @Override
+        public String getFormattedValue(float value) {
+
+            if(value==1){
+                return "Samaa mieltä";
+            }else if(value==2){
+                return "Eri mieltä";
+            }else{
+                return "En osaa sanoa";
+            }
+
+        }
 
     }
     private void updateFirebase(){

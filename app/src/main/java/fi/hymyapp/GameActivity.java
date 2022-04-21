@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class GameActivity extends AppCompatActivity {
 
+    public static String DATAPATH ="" ;
     //init database and references to parts you want to access
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app/");
     DatabaseReference op1Counter;
@@ -33,6 +34,7 @@ public class GameActivity extends AppCompatActivity {
 
     //init values for path
     String dbpath;
+
     int pathNumber=1;
 
     //init values for data you want to access, make their value = database value later
@@ -59,6 +61,7 @@ public class GameActivity extends AppCompatActivity {
 
         //give db references path to database
         dbpath =Singleton.getInstance().getThemes().get(i).getDatapath();
+        DATAPATH = dbpath;
         op1Counter = database.getReference(dbpath+"/question1/zOp1Count");
         op2Counter = database.getReference(dbpath+"/question1/zOp2Count");
         op3Counter = database.getReference(dbpath+"/question1/zOp3Count");
@@ -125,8 +128,9 @@ public class GameActivity extends AppCompatActivity {
 
         }else{
             //last question answered, change activity
-            Intent lastActivity = new Intent(GameActivity.this,ResultsActivity.class);
+            Intent lastActivity = new Intent(GameActivity.this,ChartActivity.class);
             lastActivity.putExtra(EXTRA,score.toString());
+
             startActivity(lastActivity);
 
         }

@@ -26,7 +26,6 @@
         android:layout_width="94dp"
         android:layout_height="56dp"
         android:layout_marginTop="344dp"
-        android:onClick="OpenChart"
         android:text="Button"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"

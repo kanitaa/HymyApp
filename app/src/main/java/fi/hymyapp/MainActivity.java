@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void OpenChart(View view){
+  /*  public void OpenChart(View view){
         Intent nextActivity=new Intent(MainActivity.this,ChartActivity.class);
 
         startActivity(nextActivity);
-    }
+    }*/
 
 }
