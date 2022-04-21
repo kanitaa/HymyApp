@@ -1,5 +1,7 @@
 package fi.hymyapp;
 
+import static fi.hymyapp.MainActivity.EXTRA;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -45,13 +47,15 @@ public class GameActivity extends AppCompatActivity {
 
     private static final String TAG ="Firebase" ;
 
+    //score counter for end results
+    Score score = new Score();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         Bundle b = getIntent().getExtras();
-        int i =b.getInt(MainActivity.EXTRA,0);
+        int i =b.getInt(EXTRA,0);
 
         //give db references path to database
         dbpath =Singleton.getInstance().getThemes().get(i).getDatapath();
@@ -62,11 +66,7 @@ public class GameActivity extends AppCompatActivity {
         statement = database.getReference(dbpath+"/question1/aStatement");
 
         statementView = (TextView) findViewById(R.id.statementText);
-        ReadDataFromFirebase();
-
-
-
-
+        readDataFromFirebase();
 
 
 
@@ -74,7 +74,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void Option1(View view){
+    public void option1(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         mp.start();
         //when option is clicked, increase value by 1
@@ -84,10 +84,12 @@ public class GameActivity extends AppCompatActivity {
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
+        score.increasePoints(2);
+
         //after increasing database value, show new question
-        ChangeQuestion();
+        changeQuestion();
     }
-    public void Option2(View view){
+    public void option2(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         mp.start();
         int newValue =op2Value+1;
@@ -95,9 +97,9 @@ public class GameActivity extends AppCompatActivity {
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
-        ChangeQuestion();
+        changeQuestion();
     }
-    public void Option3(View view){
+    public void option3(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         mp.start();
         int newValue = op3Value+1;
@@ -105,9 +107,9 @@ public class GameActivity extends AppCompatActivity {
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
-        ChangeQuestion();
+        changeQuestion();
     }
-    public void ChangeQuestion(){
+    public void changeQuestion(){
         if(pathNumber!=2)
         {
             //increase pathnumber by one, to access next question in database
@@ -119,11 +121,12 @@ public class GameActivity extends AppCompatActivity {
             op2Counter = database.getReference(dbpath+"/zOp2Count");
             op3Counter = database.getReference(dbpath+"/zOp3Count");
             totalCounter = database.getReference(dbpath+"/zTotalCount");
-            ReadDataFromFirebase();
+            readDataFromFirebase();
 
         }else{
             //last question answered, change activity
             Intent lastActivity = new Intent(GameActivity.this,ResultsActivity.class);
+            lastActivity.putExtra(EXTRA,score.toString());
             startActivity(lastActivity);
 
         }
@@ -134,7 +137,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
-    public void ReadDataFromFirebase(){
+    public void readDataFromFirebase(){
 
         //QUESTION TEXT, add listener which triggers when data is changed
         statement.addValueEventListener(new ValueEventListener() {
