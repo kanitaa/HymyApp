@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="113dp"
         android:onClick="Option1"
+        android:soundEffectsEnabled="false"
         android:text="Totta"
         app:layout_constraintEnd_toStartOf="@+id/option2Button"
         app:layout_constraintHorizontal_bias="0.65"
@@ -36,6 +37,7 @@
         android:layout_marginTop="112dp"
         android:layout_marginEnd="28dp"
         android:onClick="Option2"
+        android:soundEffectsEnabled="false"
         android:text="Paskaa"
         app:layout_constraintEnd_toStartOf="@+id/option3Button"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
@@ -47,6 +49,7 @@
         android:layout_marginTop="113dp"
         android:layout_marginEnd="36dp"
         android:onClick="Option3"
+        android:soundEffectsEnabled="false"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />

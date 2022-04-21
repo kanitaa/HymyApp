@@ -2,6 +2,7 @@ package fi.hymyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
+
         questionView = (TextView) findViewById(R.id.questionText);
         ReadDataFromFirebase();
         Log.d(TAG, qRef.toString());
@@ -50,17 +52,24 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
     public void Option1(View view){
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
         int newValue = op1Value+1;
         op1Counter.setValue(newValue);
         newValue = totalValue+1;
         totalCounter.setValue(newValue);
 
+
         ChangeQuestion();
     }
     public void Option2(View view){
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
         int newValue =op2Value+1;
         op2Counter.setValue(newValue);
         newValue = totalValue+1;
@@ -69,6 +78,8 @@ public class GameActivity extends AppCompatActivity {
         ChangeQuestion();
     }
     public void Option3(View view){
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
         int newValue = op3Value+1;
         op3Counter.setValue(newValue);
         newValue = totalValue+1;
