@@ -3,10 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_chart.xml" value="0.25" />
-        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.3512245961438249" />
-        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_results.xml" value="0.22" />
+        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_new_user.xml" value="0.458786231884058" />
       </map>
     </option>
   </component>
