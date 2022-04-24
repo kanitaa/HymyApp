@@ -2,7 +2,9 @@ package fi.hymyapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -24,10 +26,17 @@ public class NewUserActivity extends AppCompatActivity {
         String userAge = editAge.getText().toString();
 
         Intent backToMainActivity = new Intent(NewUserActivity.this, MainActivity.class);
-        backToMainActivity.putExtra("name", userName);
-        backToMainActivity.putExtra("age", userAge);
-        MainActivity.newUser = false;
+        userPrefEdit(userName, Integer.parseInt(userAge));
         startActivity(backToMainActivity);
+    }
+
+    public void userPrefEdit(String name, int age) {
+        SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
+        userPrefEditor.putString("nameKey", name);
+        userPrefEditor.putInt("ageKey", age);
+        userPrefEditor.putBoolean("newUserKey", false);
+        userPrefEditor.commit();
     }
 
     public void inputValidator(String name, String age) {
