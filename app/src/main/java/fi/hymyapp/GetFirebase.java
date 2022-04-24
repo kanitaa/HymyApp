@@ -2,8 +2,11 @@ package fi.hymyapp;
 
 import static android.content.ContentValues.TAG;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +26,9 @@ public class GetFirebase {
     private DatabaseReference op3Counter;
     private DatabaseReference totalCounter;
     private DatabaseReference statement;
+    private DatabaseReference correctAnswer;
 
+    private String correctAnswerText;
     private String statementText;
     private int op1Value;
     private int op2Value;
@@ -40,6 +45,7 @@ public class GetFirebase {
         this.op2Value=0;
         this.op3Value=0;
         this.totalValue=0;
+        this.correctAnswerText="";
 
         //link database references to correct path in database
         op1Counter = database.getReference(GameActivity.dbpath+"/zOp1Count");
@@ -47,6 +53,7 @@ public class GetFirebase {
         op3Counter = database.getReference(GameActivity.dbpath+"/zOp3Count");
         totalCounter = database.getReference(GameActivity.dbpath+"/zTotalCount");
         statement = database.getReference(GameActivity.dbpath+"/aStatement");
+        correctAnswer=database.getReference(GameActivity.dbpath+"/correctAnswer");
 
     }
     //functions to get info from this database class
@@ -83,6 +90,7 @@ public class GetFirebase {
     public String getDataPath(){
         return dbpath;
     }
+    public String getCorrectAnswer(){return correctAnswerText; }
 
     //add listeners to all database references
     public void setCounters(TextView statementView) {
@@ -111,6 +119,7 @@ public class GetFirebase {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 op1Value = dataSnapshot.getValue(Integer.class);
+
                 Log.d(TAG, "Option1 Value is: " + op1Value);
             }
             @Override
@@ -160,6 +169,19 @@ public class GetFirebase {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        //Read correct answer from the database
+        correctAnswer.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot datasnapshot) {
+                correctAnswerText=datasnapshot.getValue(String.class);
+                Log.d(TAG,"Value is : "+correctAnswerText);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
     }

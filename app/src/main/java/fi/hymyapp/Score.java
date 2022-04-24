@@ -1,5 +1,7 @@
 package fi.hymyapp;
 
+import android.util.Log;
+
 public class Score {
 
     private int currentPoints;
@@ -13,6 +15,7 @@ public class Score {
     public void increasePoints(int points){
         this.currentPoints = this.currentPoints+points;
         System.out.println(currentPoints);
+        Log.d("asd",Integer.toString(currentPoints));
     }
 
     public String checkResult(){

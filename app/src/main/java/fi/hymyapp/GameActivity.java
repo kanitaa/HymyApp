@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity {
     public static String dbpath;
     public static String dbTemp;
     private int pathNumber=1;
+    public String correctA;
 
     //set statement text here for ui
     TextView statementView;
@@ -57,6 +58,7 @@ public class GameActivity extends AppCompatActivity {
 
     //onclick functions for option buttons
     public void option1(View view){
+        //Sound for button click
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         mp.start();
         //when option is clicked, increase value by 1
@@ -65,8 +67,16 @@ public class GameActivity extends AppCompatActivity {
         base.getOp1Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
-        //give score after right answer WIP
-        score.increasePoints(2);
+
+
+        correctA=base.getCorrectAnswer();
+        Log.d("asd",correctA);
+        //Increase points by 2 if correct answer is right
+        if(correctA.equals("op1")){
+            //give score after right answer WIP
+            score.increasePoints(2);
+        }
+
         //after increasing database value, show new question
         changeQuestion();
     }
@@ -77,6 +87,13 @@ public class GameActivity extends AppCompatActivity {
         base.getOp2Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
+
+        //Get correct answer from getFirebase class.
+        correctA=base.getCorrectAnswer();
+        //Increase points by 2 if correct answer is right
+        if(correctA.equals("op2")){
+            score.increasePoints(2);
+        }
         changeQuestion();
     }
     public void option3(View view){
@@ -86,6 +103,13 @@ public class GameActivity extends AppCompatActivity {
         base.getOp3Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
+
+        //Get correct answer from getFirebase class.
+        correctA=base.getCorrectAnswer();
+        //Increase points by 2 if correct answer is right
+        if(correctA.equals("op3")){
+            score.increasePoints(2);
+        }
         changeQuestion();
     }
     private void changeQuestion(){
