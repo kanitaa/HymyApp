@@ -27,7 +27,13 @@ public class GetFirebase {
     private DatabaseReference totalCounter;
     private DatabaseReference statement;
     private DatabaseReference correctAnswer;
+    private DatabaseReference op1;
+    private DatabaseReference op2;
+    private DatabaseReference op3;
 
+    private String op1Text;
+    private String op2Text;
+    private String op3Text;
     private String correctAnswerText;
     private String statementText;
     private int op1Value;
@@ -46,6 +52,9 @@ public class GetFirebase {
         this.op3Value=0;
         this.totalValue=0;
         this.correctAnswerText="";
+        this.op1Text="";
+        this.op2Text="";
+        this.op3Text="";
 
         //link database references to correct path in database
         op1Counter = database.getReference(GameActivity.dbpath+"/zOp1Count");
@@ -54,6 +63,9 @@ public class GetFirebase {
         totalCounter = database.getReference(GameActivity.dbpath+"/zTotalCount");
         statement = database.getReference(GameActivity.dbpath+"/aStatement");
         correctAnswer=database.getReference(GameActivity.dbpath+"/correctAnswer");
+        op1=database.getReference(GameActivity.dbpath+"/op1");
+        op2=database.getReference(GameActivity.dbpath+"/op2");
+        op3=database.getReference(GameActivity.dbpath+"/op3");
 
     }
     //functions to get info from this database class
@@ -91,6 +103,9 @@ public class GetFirebase {
         return dbpath;
     }
     public String getCorrectAnswer(){return correctAnswerText; }
+    public String getOp1(){return op1Text;}
+    public String getOp2(){return op2Text;}
+    public String getOp3(){return op3Text;}
 
     //add listeners to all database references
     public void setCounters(TextView statementView) {
@@ -177,6 +192,42 @@ public class GetFirebase {
             public void onDataChange(DataSnapshot datasnapshot) {
                 correctAnswerText=datasnapshot.getValue(String.class);
                 Log.d(TAG,"Value is : "+correctAnswerText);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG,"Failed to read value.",error.toException());
+            }
+        });
+        op1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot datasnapshot) {
+                op1Text=datasnapshot.getValue(String.class);
+                Log.d(TAG,"Op1 text value is : "+op1Text);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG,"Failed to read value.",error.toException());
+            }
+        });
+        op2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot datasnapshot) {
+                op2Text=datasnapshot.getValue(String.class);
+                Log.d(TAG,"Op2 text value is : "+op2Text);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG,"Failed to read value.",error.toException());
+            }
+        });
+        op3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot datasnapshot) {
+                op3Text=datasnapshot.getValue(String.class);
+                Log.d(TAG,"Op3 text value is : "+op3Text);
             }
 
             @Override

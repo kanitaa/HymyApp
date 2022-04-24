@@ -11,6 +11,7 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,9 @@ public class GameActivity extends AppCompatActivity {
 
     //set statement text here for ui
     TextView statementView;
+    Button op1button;
+    Button op2button;
+    Button op3button;
 
     private static final String TAG ="Firebase" ;
 
@@ -45,6 +49,10 @@ public class GameActivity extends AppCompatActivity {
 
 
         statementView = (TextView) findViewById(R.id.statementText);
+        op1button=(Button) findViewById(R.id.option1Button);
+        op2button=(Button)findViewById(R.id.option2Button);
+        op3button=(Button)findViewById(R.id.option3Button);
+
 
         dbpath =Singleton.getInstance().getThemes().get(i).getDatapath()+"/question"+pathNumber;
         //save og dbpath info to be able to access it later again
@@ -53,7 +61,15 @@ public class GameActivity extends AppCompatActivity {
         base.setCounters(statementView);
         base.setDataPath(Singleton.getInstance().getThemes().get(i).getDatapath()+"/question");
 
+
     }
+
+    public void updateButtons(){
+        op1button.setText(base.getOp1());
+        op2button.setText(base.getOp2());
+        op3button.setText(base.getOp3());
+    }
+
 
     //onclick functions for option buttons
     public void option1(View view){
@@ -66,6 +82,9 @@ public class GameActivity extends AppCompatActivity {
         base.getOp1Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
+
+
+
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
@@ -83,6 +102,8 @@ public class GameActivity extends AppCompatActivity {
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
 
+
+
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
@@ -98,6 +119,8 @@ public class GameActivity extends AppCompatActivity {
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
 
+
+
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op3")){
@@ -108,6 +131,7 @@ public class GameActivity extends AppCompatActivity {
     private void changeQuestion(){
         if(pathNumber!=2)
         {
+           updateButtons();
             //increase pathnumber by one, to access next question in database
             pathNumber+=1;
             //change db references to match correct question number
