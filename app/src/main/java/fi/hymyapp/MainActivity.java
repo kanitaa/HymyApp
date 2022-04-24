@@ -17,12 +17,11 @@ import android.widget.ArrayAdapter;
 
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA = "com.example.myfirstapp.MESSAGE";
-
-    //public static boolean newUser = true;
     User user = new User();
 
     @Override
@@ -50,34 +49,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUI() { //This function can be called whenever changes have been made to the Activity elements and they need to be updated
-
         Button continueButton = findViewById(R.id.newUserButton);
+        ListView lv =findViewById(R.id.themesListView);
+        TextView greetUser = findViewById(R.id.greetUserText);
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
-        if(userPrefGet.getBoolean("newUserKey", true)) {
-            continueButton.setVisibility(View.VISIBLE);
-            Log.d(TAG, "userPrefReader: uusi käyttäjä");
-        } else {
-            continueButton.setVisibility((GONE));
-            Log.d(TAG, "userPrefReader: vanha käyttäjä");
-        }
 
+        if(userPrefGet.getBoolean("newUserKey", true)) { // If the user is new, the quizzes are not visible and continue button is visible
+            Log.d(TAG, "uusi käyttäjä");
+            continueButton.setVisibility(View.VISIBLE);
+            lv.setVisibility(GONE);
+            greetUser.setVisibility(GONE);
+        } else {
+            Log.d(TAG, "vanha käyttäjä");
+            continueButton.setVisibility((GONE));
+            lv.setVisibility(View.VISIBLE);
+            greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta!");
+            greetUser.setVisibility(View.VISIBLE);
+        }
     }
 
-    public void userPrefReader() {
+    public void userPrefReader() { // This functions reads from the preferences
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         user = new User(userPrefGet.getString("nameKey", ""), userPrefGet.getInt("ageKey", 0), userPrefGet.getBoolean("newUserKey", true));
     }
 
-    public void userPrefEdit(String name, int age) {
-        SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
-        userPrefEditor.putString("nameKey", name);
-        userPrefEditor.putInt("ageKey", age);
-        userPrefEditor.putBoolean("newUserKey", false);
-        userPrefEditor.commit();
-    }
-
-    public void resetPrefs(View view) {
+    public void resetPrefs(View view) { // This function resets the user prefs, then new user input is needed before quizzes open again
         SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
         userPrefEditor.putString("nameKey", "");
@@ -91,10 +87,4 @@ public class MainActivity extends AppCompatActivity {
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(userInputActivity);
     }
-
-  /*  public void OpenChart(View view){
-        Intent nextActivity=new Intent(MainActivity.this,ChartActivity.class);
-
-        startActivity(nextActivity);
-    }*/
 }
