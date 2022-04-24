@@ -66,7 +66,6 @@ public class GameActivity extends AppCompatActivity {
         base.getOp1Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
-
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
