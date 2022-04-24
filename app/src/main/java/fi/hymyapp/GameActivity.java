@@ -27,7 +27,6 @@ public class GameActivity extends AppCompatActivity {
     public static String dbpath;
     public static String dbTemp;
     private int pathNumber=1;
-    public String correctA;
 
     //set statement text here for ui
     TextView statementView;
@@ -68,11 +67,8 @@ public class GameActivity extends AppCompatActivity {
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
 
-
-        correctA=base.getCorrectAnswer();
-        Log.d("asd",correctA);
         //Increase points by 2 if correct answer is right
-        if(correctA.equals("op1")){
+        if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
             score.increasePoints(2);
         }
@@ -89,9 +85,8 @@ public class GameActivity extends AppCompatActivity {
         base.getTotalCounter().setValue(newValue);
 
         //Get correct answer from getFirebase class.
-        correctA=base.getCorrectAnswer();
         //Increase points by 2 if correct answer is right
-        if(correctA.equals("op2")){
+        if(base.getCorrectAnswer().equals("op2")){
             score.increasePoints(2);
         }
         changeQuestion();
@@ -105,9 +100,8 @@ public class GameActivity extends AppCompatActivity {
         base.getTotalCounter().setValue(newValue);
 
         //Get correct answer from getFirebase class.
-        correctA=base.getCorrectAnswer();
         //Increase points by 2 if correct answer is right
-        if(correctA.equals("op3")){
+        if(base.getCorrectAnswer().equals("op3")){
             score.increasePoints(2);
         }
         changeQuestion();
