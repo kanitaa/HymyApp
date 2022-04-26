@@ -58,8 +58,12 @@ public class GameActivity extends AppCompatActivity {
         //save og dbpath info to be able to access it later again
         dbTemp = Singleton.getInstance().getThemes().get(i).getDatapath()+"/question";
         base = new GetFirebase();
+        base.setButtons(op1button, op2button, op3button);
         base.setCounters(statementView);
         base.setDataPath(Singleton.getInstance().getThemes().get(i).getDatapath()+"/question");
+
+       // base.updateButtons();
+       // updateButtons();
 
 
     }
@@ -131,13 +135,15 @@ public class GameActivity extends AppCompatActivity {
     private void changeQuestion(){
         if(pathNumber!=2)
         {
-           updateButtons();
+        //   updateButtons();
             //increase pathnumber by one, to access next question in database
             pathNumber+=1;
             //change db references to match correct question number
             dbpath = dbTemp+pathNumber;
             base = new GetFirebase();
+            base.setButtons(op1button, op2button, op3button);
             base.setCounters(statementView);
+
         }else{
             //last question answered, change activity
             Intent lastActivity = new Intent(GameActivity.this,ChartActivity.class);

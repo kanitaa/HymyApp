@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,10 @@ public class GetFirebase {
     private int totalValue;
 
     private String dbpath;
+
+    private Button op1button;
+    private Button op2button;
+    private Button op3button;
 
 
     public GetFirebase(){
@@ -106,6 +111,20 @@ public class GetFirebase {
     public String getOp1(){return op1Text;}
     public String getOp2(){return op2Text;}
     public String getOp3(){return op3Text;}
+
+    public void setButtons(Button op1, Button op2, Button op3){
+        this.op1button=op1;
+        this.op2button=op2;
+        this.op3button=op3;
+        System.out.println("hweo"+this.op1button);
+        System.out.println("haloo"+this.op1Text);
+    }
+    public void updateButtons(){
+        op1button.setText(op1Text);
+        op2button.setText(op2Text);
+        op3button.setText(op3Text);
+    }
+
 
     //add listeners to all database references
     public void setCounters(TextView statementView) {
@@ -204,6 +223,8 @@ public class GetFirebase {
             public void onDataChange(DataSnapshot datasnapshot) {
                 op1Text=datasnapshot.getValue(String.class);
                 Log.d(TAG,"Op1 text value is : "+op1Text);
+                if(op1button!=null)
+                op1button.setText(op1Text);
             }
 
             @Override
@@ -216,6 +237,8 @@ public class GetFirebase {
             public void onDataChange(DataSnapshot datasnapshot) {
                 op2Text=datasnapshot.getValue(String.class);
                 Log.d(TAG,"Op2 text value is : "+op2Text);
+                if(op2button!=null)
+                op2button.setText(op2Text);
             }
 
             @Override
@@ -228,6 +251,8 @@ public class GetFirebase {
             public void onDataChange(DataSnapshot datasnapshot) {
                 op3Text=datasnapshot.getValue(String.class);
                 Log.d(TAG,"Op3 text value is : "+op3Text);
+                if(op3button!=null)
+                op3button.setText(op3Text);
             }
 
             @Override
