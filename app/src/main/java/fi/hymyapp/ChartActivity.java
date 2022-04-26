@@ -31,7 +31,9 @@ public class ChartActivity extends AppCompatActivity {
     //variables for score class
     Score score;
     TextView scoreView;
-
+    String op1="a";
+    String op2="b";
+    String op3="c";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,7 @@ public class ChartActivity extends AppCompatActivity {
 
         //get database values for charts
         base = new GetFirebase();
+
         base.setCounters(statementView);
         //hide statementView, its needed for parameter but not used in this activity
         statementView.setVisibility(View.GONE);
@@ -63,8 +66,13 @@ public class ChartActivity extends AppCompatActivity {
 
     //onclick event for datachart button
     public void setChart(View view){
+            op1 = base.getOp1();
+            op2 = base.getOp2();
+            op3 = base.getOp3();
             drawChart();
             updateFirebase();
+
+
     }
     private void drawChart(){
         //remove old chart
@@ -113,11 +121,11 @@ public class ChartActivity extends AppCompatActivity {
         @Override
         public String getFormattedValue(float value) {
             if(value==1){
-                return "Samaa mieltä";
+                return op1;
             }else if(value==2){
-                return "Eri mieltä";
+                return op2;
             }else{
-                return "En osaa sanoa";
+                return op3;
             }
         }
     }
