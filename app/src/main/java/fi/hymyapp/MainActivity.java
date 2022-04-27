@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        userPrefReader();
-        updateUI();
+        userPrefReader(); // When starting the software the preferences need to be read to know if the user is new or known
+        updateUI(); // UI needs updating
     }
 
     public void updateUI() { //This function can be called whenever changes have been made to the Activity elements and they need to be updated
@@ -55,12 +55,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
 
         if(userPrefGet.getBoolean("newUserKey", true)) { // If the user is new, the quizzes are not visible and continue button is visible
-            Log.d(TAG, "uusi käyttäjä");
             continueButton.setVisibility(View.VISIBLE);
             lv.setVisibility(GONE);
             greetUser.setVisibility(GONE);
-        } else {
-            Log.d(TAG, "vanha käyttäjä");
+        } else { // If the user is known, greeting text is visible, the quiz list is visible and the continue button is hidden
             continueButton.setVisibility((GONE));
             lv.setVisibility(View.VISIBLE);
             greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta!");
@@ -76,15 +74,15 @@ public class MainActivity extends AppCompatActivity {
     public void resetPrefs(View view) { // This function resets the user prefs, then new user input is needed before quizzes open again
         SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
-        userPrefEditor.putString("nameKey", "");
+        userPrefEditor.putString("nameKey", ""); // Putting "empty" values for their corresponding keys
         userPrefEditor.putInt("ageKey", 0);
         userPrefEditor.putBoolean("newUserKey", true);
-        userPrefEditor.commit();
-        updateUI();
+        userPrefEditor.commit(); // Committing the changes to the preferences
+        updateUI(); // UI needs updating
     }
 
     public void openNewUserActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
-        startActivity(userInputActivity);
+        startActivity(userInputActivity); // Starting userInputActivity
     }
 }
