@@ -214,6 +214,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        //Read option1 from the database
         op1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
@@ -228,6 +229,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        // Read option 2 from the database
         op2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
@@ -242,6 +244,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        // Read option 3 from the database
         op3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {

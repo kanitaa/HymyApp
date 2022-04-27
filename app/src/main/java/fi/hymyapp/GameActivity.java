@@ -145,6 +145,7 @@ public class GameActivity extends AppCompatActivity {
             startActivity(lastActivity);
         }
     }
+    // Close all Ui elements and show results button
     private void answerView(){
         statementView.setVisibility(View.INVISIBLE);
         op1button.setVisibility(View.INVISIBLE);
@@ -152,15 +153,16 @@ public class GameActivity extends AppCompatActivity {
         op3button.setVisibility(View.INVISIBLE);
         aText.setVisibility(View.VISIBLE);
     }
+    //Show all Ui elements and close results button
     public void nextQuestion(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         mp.start();
-        changeQuestion();
         aText.setVisibility(View.INVISIBLE);
         statementView.setVisibility(View.VISIBLE);
         op1button.setVisibility(View.VISIBLE);
         op2button.setVisibility(View.VISIBLE);
         op3button.setVisibility(View.VISIBLE);
+        changeQuestion();
 
     }
 }
