@@ -1,6 +1,6 @@
 package fi.hymyapp;
 
-public class User {
+public class User { // This class is used for user preference saving
 
     private String name;
     private int age;
