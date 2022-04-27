@@ -31,6 +31,7 @@ public class GameActivity extends AppCompatActivity {
 
     //set statement text here for ui
     TextView statementView;
+    Button aText;
     Button op1button;
     Button op2button;
     Button op3button;
@@ -47,7 +48,7 @@ public class GameActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         int i =b.getInt(EXTRA,0);
 
-
+        aText=(Button) findViewById(R.id.answerButton);
         statementView = (TextView) findViewById(R.id.statementText);
         op1button=(Button) findViewById(R.id.option1Button);
         op2button=(Button)findViewById(R.id.option2Button);
@@ -61,19 +62,11 @@ public class GameActivity extends AppCompatActivity {
         base.setButtons(op1button, op2button, op3button);
         base.setCounters(statementView);
         base.setDataPath(Singleton.getInstance().getThemes().get(i).getDatapath()+"/question");
+        aText.setVisibility(View.INVISIBLE);
 
-       // base.updateButtons();
-       // updateButtons();
 
 
     }
-
-    public void updateButtons(){
-        op1button.setText(base.getOp1());
-        op2button.setText(base.getOp2());
-        op3button.setText(base.getOp3());
-    }
-
 
     //onclick functions for option buttons
     public void option1(View view){
@@ -96,7 +89,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         //after increasing database value, show new question
-        changeQuestion();
+        answerView();
     }
     public void option2(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
@@ -113,7 +106,7 @@ public class GameActivity extends AppCompatActivity {
         if(base.getCorrectAnswer().equals("op2")){
             score.increasePoints(2);
         }
-        changeQuestion();
+        answerView();
     }
     public void option3(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
@@ -130,12 +123,13 @@ public class GameActivity extends AppCompatActivity {
         if(base.getCorrectAnswer().equals("op3")){
             score.increasePoints(2);
         }
-        changeQuestion();
+
+        answerView();
     }
     private void changeQuestion(){
         if(pathNumber!=2)
         {
-        //   updateButtons();
+
             //increase pathnumber by one, to access next question in database
             pathNumber+=1;
             //change db references to match correct question number
@@ -150,5 +144,23 @@ public class GameActivity extends AppCompatActivity {
             lastActivity.putExtra(EXTRA,score.toString());
             startActivity(lastActivity);
         }
+    }
+    private void answerView(){
+        statementView.setVisibility(View.INVISIBLE);
+        op1button.setVisibility(View.INVISIBLE);
+        op2button.setVisibility(View.INVISIBLE);
+        op3button.setVisibility(View.INVISIBLE);
+        aText.setVisibility(View.VISIBLE);
+    }
+    public void nextQuestion(View view){
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
+        changeQuestion();
+        aText.setVisibility(View.INVISIBLE);
+        statementView.setVisibility(View.VISIBLE);
+        op1button.setVisibility(View.VISIBLE);
+        op2button.setVisibility(View.VISIBLE);
+        op3button.setVisibility(View.VISIBLE);
+
     }
 }

@@ -119,11 +119,7 @@ public class GetFirebase {
         System.out.println("hweo"+this.op1button);
         System.out.println("haloo"+this.op1Text);
     }
-    public void updateButtons(){
-        op1button.setText(op1Text);
-        op2button.setText(op2Text);
-        op3button.setText(op3Text);
-    }
+    
 
 
     //add listeners to all database references
