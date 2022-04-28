@@ -4,7 +4,7 @@ import android.util.Log;
 /**
  * @author Janita Korhonen
  * @version 1
- * This is a class for tracking points as player progresses through the game
+ * A class for tracking points as player progresses through the game
  */
 public class Score {
 
@@ -12,7 +12,7 @@ public class Score {
 
     /**
      * Default constructor for Score class.
-     * Set currentPoints to 0.
+     * Sets currentPoints to 0.
      */
     public Score(){
         this.currentPoints=0;
@@ -38,8 +38,8 @@ public class Score {
     }
 
     /**
-     * Check how many points player has got,
-     * and return a message related to that point amount.
+     * Checks how many points player has got,
+     * and returns a message related to that point amount.
      * <p>
      * This method is called when player has answered all questions and it is time to show results.
      * @return  currentPoints and message related to the amount
@@ -59,7 +59,7 @@ public class Score {
     }
 
     /**
-     * Convert currentPoints from integer to String
+     * Converts currentPoints from integer to String
      * <p>
      * This method is called when it is needed to print out currentPoints
      * @return  currentPoints as String
