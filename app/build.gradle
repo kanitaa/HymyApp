@@ -56,6 +56,7 @@ android.applicationVariants.all { variant ->
             ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
             classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
             options.links('https://developer.android.com/reference/', 'https://d.android.com/reference/androidx/')
+            options.memberLevel = JavadocMemberLevel.PRIVATE
         }
     }
 }
