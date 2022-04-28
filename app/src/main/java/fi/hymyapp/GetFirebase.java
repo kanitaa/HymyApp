@@ -249,7 +249,6 @@ public class GetFirebase {
             }
         });
 
-        if(op1button!=null){
         //Read option1 from the database
         op1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -294,6 +293,6 @@ public class GetFirebase {
             public void onCancelled(DatabaseError error) {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
-        });}
+        });
     }
 }

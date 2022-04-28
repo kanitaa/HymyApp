@@ -58,7 +58,7 @@ public class GameActivity extends AppCompatActivity {
         base = new GetFirebase();
         base.setButtons(op1button, op2button, op3button);
         base.setCounters(statementView);
-        base.setDataPath(Theme.getInstance().getThemes().get(i).getDatapath()+"/question");
+
         aText.setVisibility(View.INVISIBLE);
         answerList.add("vastaus1");
         answerList.add("vastaus2");
