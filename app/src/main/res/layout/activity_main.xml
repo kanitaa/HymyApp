@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAlignment="center"
     tools:context=".MainActivity">
 
     <ListView
         android:id="@+id/themesListView"
         android:layout_width="228dp"
         android:layout_height="230dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="50dp"
         android:soundEffectsEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.661"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greetUserText">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876">
 
 
     </ListView>
@@ -26,20 +26,16 @@
         android:id="@+id/newUserButton"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/round"
-        android:fontFamily="@font/firasans_bold"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="100dp"
         android:onClick="openNewUserActivity"
-        android:text="Aloita"
-        android:textColor="#FFFFFF"
+        android:text="JATKA"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/greetUserText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/resetPrefsButton"
@@ -60,15 +56,13 @@
         android:id="@+id/greetUserText"
         android:layout_width="137dp"
         android:layout_height="79dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:fontFamily="@font/firasans_bold"
-        android:text="Moi käyttäjä"
+        android:text="moi käyttäjä"
         android:textAlignment="center"
-        android:textColor="#964B9D"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/themesListView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUserButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

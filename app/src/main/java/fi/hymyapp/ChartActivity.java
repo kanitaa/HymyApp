@@ -15,8 +15,12 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
-
-
+/**
+ * @author Janita Korhonen
+ * @version 1
+ * A class for final activity in the application.
+ * Showing results and drawing barchart based on Firebase data.
+ */
 public class ChartActivity extends AppCompatActivity {
 
     //variables needed for database
@@ -27,13 +31,16 @@ public class ChartActivity extends AppCompatActivity {
     //variables for chart
     ArrayList barArrayList;
     BarChart barChart;
+    String op1="a";
+    String op2="b";
+    String op3="c";
 
     //variables for score class
     Score score;
     TextView scoreView;
-    String op1="a";
-    String op2="b";
-    String op3="c";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +53,6 @@ public class ChartActivity extends AppCompatActivity {
         //update database datapath to show first question
         GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
 
-
         //get score from previous activity
         Bundle b = getIntent().getExtras();
         String scoreAmount =b.getString(EXTRA,"");
@@ -56,7 +62,6 @@ public class ChartActivity extends AppCompatActivity {
 
         //get database values for charts
         base = new GetFirebase();
-
         base.setCounters(statementView);
         //hide statementView, its needed for parameter but not used in this activity
         statementView.setVisibility(View.GONE);
@@ -64,6 +69,13 @@ public class ChartActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Combines all methods that are required for drawing a new barchart.
+     * <p>
+     * This method is called when chart button is clicked.
+     * @param view is responsible for drawing chart on UI
+     */
     //onclick event for datachart button
     public void setChart(View view){
             op1 = base.getOp1();
@@ -71,13 +83,16 @@ public class ChartActivity extends AppCompatActivity {
             op3 = base.getOp3();
             drawChart();
             updateFirebase();
-
-
     }
+
+    /**
+     * Draws a barchart on the screen with information from Firebase.
+     * <p>
+     * This method is called when player wants to see the answer data from Firebase.
+     */
     private void drawChart(){
         //remove old chart
         barChart.removeAllViews();
-
         //create new bar chart with database values
         barArrayList = new ArrayList();
         barArrayList.add(new BarEntry(1f,base.getOp1Value()));
@@ -116,8 +131,19 @@ public class ChartActivity extends AppCompatActivity {
 
     }
 
-    //set values for labels
+    /**
+     * A class for creating custom ValueFormatter with custom values.
+     * <p>
+     * This class is called when barchart is created.
+     */
     private class MyAxisFormatter extends ValueFormatter {
+        /**
+         * Sets values for barchart labels.
+         * <p>
+         * This method is called automatically when ValueFormatter class is set in barchart.
+         * @param value equals label number
+         * @return  option values from Firebase for each label number
+         */
         @Override
         public String getFormattedValue(float value) {
             if(value==1){
@@ -129,6 +155,13 @@ public class ChartActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Updates the path to Firebase by increasing pathNumber by one.
+     * Gets information from updated Firebase path.
+     * <p>
+     * This method is called when barchart information needs to be updated
+     */
     private void updateFirebase(){
             //if path isnt already max (max question amount)
             if(pathNumber!=2) {
@@ -137,7 +170,6 @@ public class ChartActivity extends AppCompatActivity {
                 GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
                 base = new GetFirebase();
                 base.setCounters(statementView);
-
             } else{
                 //if path is maxed out, start showing questions all over again from start
                 pathNumber = 1;

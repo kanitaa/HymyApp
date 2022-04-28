@@ -6,68 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-
-    <Button
-        android:id="@+id/option1Button"
-        android:layout_width="93dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="#E91E63"
-        android:fontFamily="@font/firasans_regular"
-        android:onClick="option1"
-        android:soundEffectsEnabled="false"
-        android:text="Totta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statementText" />
-
     <TextView
         android:id="@+id/statementText"
-        android:layout_width="220dp"
-        android:layout_height="91dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="54dp"
         android:layout_marginTop="100dp"
-        android:fontFamily="@font/firasans_bold"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="78dp"
         android:text="Hello World!"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/option1Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/option1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="42dp"
+        android:onClick="option1"
+        android:soundEffectsEnabled="false"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/option2Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statementText" />
+
+    <Button
         android:id="@+id/option2Button"
-        android:layout_width="95dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/rounded_corners2"
-        android:fontFamily="@font/firasans_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="41dp"
         android:onClick="option2"
         android:soundEffectsEnabled="false"
-        android:text="Paskaa"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/option3Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option1Button" />
 
     <Button
         android:id="@+id/option3Button"
-        android:layout_width="97dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/rounded_corners"
-        android:fontFamily="@font/firasans_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="93dp"
         android:onClick="option3"
         android:soundEffectsEnabled="false"
-        android:text="Button"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option2Button" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="410dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="500dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="590dp" />
+
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="143dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="132dp"
+        android:onClick="nextQuestion"
+        android:soundEffectsEnabled="false"
+        android:text="Paska vastaus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
