@@ -1,6 +1,5 @@
 package fi.hymyapp;
 
-import static android.content.ContentValues.TAG;
 import static android.view.View.GONE;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         ListView lv =findViewById(R.id.themesListView);
         lv.setAdapter(new ArrayAdapter<Themes>(this,
                 android.R.layout.simple_list_item_1,
-                Singleton.getInstance().getThemes()));
+                Theme.getInstance().getThemes()));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
