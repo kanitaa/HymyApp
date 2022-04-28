@@ -1,24 +1,18 @@
 package fi.hymyapp;
 
-import static android.content.ContentValues.TAG;
 import static fi.hymyapp.MainActivity.EXTRA;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Binder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -28,6 +22,9 @@ public class GameActivity extends AppCompatActivity {
     public static String dbpath;
     public static String dbTemp;
     private int pathNumber=1;
+    private List<String>answerList=new ArrayList<String>();
+    private int listIndex=0;
+
 
     //set statement text here for ui
     TextView statementView;
@@ -55,17 +52,16 @@ public class GameActivity extends AppCompatActivity {
         op3button=(Button)findViewById(R.id.option3Button);
 
 
-        dbpath =Singleton.getInstance().getThemes().get(i).getDatapath()+"/question"+pathNumber;
+        dbpath = Theme.getInstance().getThemes().get(i).getDatapath()+"/question"+pathNumber;
         //save og dbpath info to be able to access it later again
-        dbTemp = Singleton.getInstance().getThemes().get(i).getDatapath()+"/question";
+        dbTemp = Theme.getInstance().getThemes().get(i).getDatapath()+"/question";
         base = new GetFirebase();
         base.setButtons(op1button, op2button, op3button);
         base.setCounters(statementView);
-        base.setDataPath(Singleton.getInstance().getThemes().get(i).getDatapath()+"/question");
+        base.setDataPath(Theme.getInstance().getThemes().get(i).getDatapath()+"/question");
         aText.setVisibility(View.INVISIBLE);
-
-
-
+        answerList.add("vastaus1");
+        answerList.add("vastaus2");
     }
 
     //onclick functions for option buttons
@@ -79,8 +75,6 @@ public class GameActivity extends AppCompatActivity {
         base.getOp1Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
-
-
 
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op1")){
@@ -116,14 +110,11 @@ public class GameActivity extends AppCompatActivity {
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
 
-
-
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op3")){
             score.increasePoints(2);
         }
-
         answerView();
     }
     private void changeQuestion(){
@@ -152,6 +143,8 @@ public class GameActivity extends AppCompatActivity {
         op2button.setVisibility(View.INVISIBLE);
         op3button.setVisibility(View.INVISIBLE);
         aText.setVisibility(View.VISIBLE);
+        aText.setText(answerList.get(listIndex));
+        listIndex+=1;
     }
     //Show all Ui elements and close results button
     public void nextQuestion(View view){

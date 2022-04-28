@@ -3,16 +3,16 @@ package fi.hymyapp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Singleton {
-    // Create an singleton instance from the Themes list
+public class Theme {
+    // Create an single instance from the Themes list
     private List<Themes> themesList;
-    private static final Singleton ourInstance = new Singleton();
+    private static final Theme ourInstance = new Theme();
 
 
-    public static Singleton getInstance(){
+    public static Theme getInstance(){
         return ourInstance;
     }
-    private Singleton(){
+    private Theme(){
         themesList=new ArrayList<>();
         themesList.add(new Themes("Osallisuuskysely","involvementQuestions"));
         themesList.add(new Themes("Oikeudetkysely","rightsQuestions"));
