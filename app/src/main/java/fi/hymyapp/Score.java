@@ -57,6 +57,7 @@ public class Score {
 
 
     }
+
     /**
      * Convert currentPoints from integer to String
      * <p>
