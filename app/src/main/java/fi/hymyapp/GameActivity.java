@@ -20,6 +20,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameActivity extends AppCompatActivity {
 
     GetFirebase base;
@@ -28,6 +31,9 @@ public class GameActivity extends AppCompatActivity {
     public static String dbpath;
     public static String dbTemp;
     private int pathNumber=1;
+    private List<String>answerList=new ArrayList<String>();
+    private int listIndex=0;
+
 
     //set statement text here for ui
     TextView statementView;
@@ -63,6 +69,9 @@ public class GameActivity extends AppCompatActivity {
         base.setCounters(statementView);
         base.setDataPath(Singleton.getInstance().getThemes().get(i).getDatapath()+"/question");
         aText.setVisibility(View.INVISIBLE);
+        answerList.add("vastaus1");
+        answerList.add("vastaus2");
+
 
 
 
@@ -152,6 +161,8 @@ public class GameActivity extends AppCompatActivity {
         op2button.setVisibility(View.INVISIBLE);
         op3button.setVisibility(View.INVISIBLE);
         aText.setVisibility(View.VISIBLE);
+        aText.setText(answerList.get(listIndex));
+        listIndex+=1;
     }
     //Show all Ui elements and close results button
     public void nextQuestion(View view){
