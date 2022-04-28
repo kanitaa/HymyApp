@@ -1,5 +1,8 @@
 package fi.hymyapp;
 
+/**
+ * @author Daniel Hewugenhauser
+ */
 public class Themes {
 
     private String name;

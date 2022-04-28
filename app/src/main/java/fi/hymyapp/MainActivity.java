@@ -17,6 +17,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * @author Daniel Heugenhauser
+ * @author Taru Vikströn
+ */
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA = "com.example.myfirstapp.MESSAGE";

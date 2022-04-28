@@ -14,6 +14,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Janita Korhonen
+ * @author Daniel Heugenhauser
+ */
+
 public class GameActivity extends AppCompatActivity {
 
     GetFirebase base;
