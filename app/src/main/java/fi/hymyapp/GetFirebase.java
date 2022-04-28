@@ -119,11 +119,7 @@ public class GetFirebase {
         System.out.println("hweo"+this.op1button);
         System.out.println("haloo"+this.op1Text);
     }
-    public void updateButtons(){
-        op1button.setText(op1Text);
-        op2button.setText(op2Text);
-        op3button.setText(op3Text);
-    }
+    
 
 
     //add listeners to all database references
@@ -218,6 +214,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        //Read option1 from the database
         op1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
@@ -232,6 +229,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        // Read option 2 from the database
         op2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
@@ -246,6 +244,7 @@ public class GetFirebase {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
         });
+        // Read option 3 from the database
         op3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {

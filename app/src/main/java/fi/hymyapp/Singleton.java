@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Singleton {
+    // Create an singleton instance from the Themes list
     private List<Themes> themesList;
     private static final Singleton ourInstance = new Singleton();
 

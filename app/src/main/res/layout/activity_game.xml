@@ -84,4 +84,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="590dp" />
 
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="143dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="132dp"
+        android:onClick="nextQuestion"
+        android:soundEffectsEnabled="false"
+        android:text="Paska vastaus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
