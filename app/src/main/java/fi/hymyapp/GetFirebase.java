@@ -16,12 +16,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
-
+/**
+ * @author Janita Korhonen
+ * @version 1
+ * A class for getting data from Firebase
+ */
 public class GetFirebase {
 
-    //init database
+    //database
     FirebaseDatabase database = FirebaseDatabase.getInstance("https://hymyapp-default-rtdb.europe-west1.firebasedatabase.app/");
 
+    //database references
     private DatabaseReference op1Counter;
     private DatabaseReference op2Counter;
     private DatabaseReference op3Counter;
@@ -32,6 +37,7 @@ public class GetFirebase {
     private DatabaseReference op2;
     private DatabaseReference op3;
 
+    //values
     private String op1Text;
     private String op2Text;
     private String op3Text;
@@ -48,7 +54,10 @@ public class GetFirebase {
     private Button op2button;
     private Button op3button;
 
-
+    /**
+     * Constructor for GetFirebase class.
+     * Used when it is required to get data from Firebase
+     */
     public GetFirebase(){
         //init database values
         this.statementText="";
@@ -73,25 +82,54 @@ public class GetFirebase {
         op3=database.getReference(GameActivity.dbpath+"/op3");
 
     }
-    //functions to get info from this database class
+
+
+    /**
+     * Returns op1Counter database reference
+     * <p>
+     * This method is called when zOp1Count firebase reference is needed
+     * @return  op1Counter as database reference
+     */
     public DatabaseReference getOp1Counter(){
         return op1Counter;
     }
+
     public int getOp1Value(){
         return op1Value;
     }
+
+    /**
+     * Returns op2Counter database reference
+     * <p>
+     * This method is called when zOp2Count firebase reference is needed
+     * @return  op2Counter as database reference
+     */
     public DatabaseReference getOp2Counter(){
         return op2Counter;
     }
+
     public int getOp2Value(){
         return op2Value;
     }
+
+    /**
+     * Returns op3Counter database reference
+     * <p>
+     * This method is called when zOp3Count firebase reference is needed
+     * @return  op3Counter as database reference
+     */
     public DatabaseReference getOp3Counter(){
         return op3Counter;
     }
     public int getOp3Value(){
         return op3Value;
     }
+    /**
+     * Returns totalCounter database reference
+     * <p>
+     * This method is called when zTotalCount firebase reference is needed
+     * @return  totalCounter as database reference
+     */
     public DatabaseReference getTotalCounter(){
         return totalCounter;
     }
@@ -116,8 +154,6 @@ public class GetFirebase {
         this.op1button=op1;
         this.op2button=op2;
         this.op3button=op3;
-        System.out.println("hweo"+this.op1button);
-        System.out.println("haloo"+this.op1Text);
     }
     
 
@@ -135,7 +171,6 @@ public class GetFirebase {
                 Log.d(TAG, "Question is: " + statementText);
                 //set new text to UI
                 statementView.setText(statementText);
-
             }
             @Override
             public void onCancelled(DatabaseError error) {
