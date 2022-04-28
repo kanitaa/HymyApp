@@ -70,4 +70,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option2Button" />
 
+    <Button
+        android:id="@+id/answerButton"
+        android:layout_width="239dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="272dp"
+        android:onClick="nextQuestion"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
