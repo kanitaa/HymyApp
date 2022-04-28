@@ -3,16 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/drawable/round.xml" value="0.2985" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/drawable/rounded_corners.xml" value="0.2985" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/drawable/rounded_corners2.xml" value="0.2985" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/font/firasans.xml" value="0.396875" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_chart.xml" value="0.358695652173913" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.358695652173913" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_new_user.xml" value="0.358695652173913" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.3242753623188406" />
+        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.25" />
         <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_new_user.xml" value="0.458786231884058" />
@@ -21,7 +14,7 @@
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/Javadoc" />
-    <option name="OPTION_SCOPE" value="package" />
+    <option name="OPTION_SCOPE" value="private" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
