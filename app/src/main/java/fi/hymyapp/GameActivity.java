@@ -63,8 +63,9 @@ public class GameActivity extends AppCompatActivity {
         base = new GetFirebase();
         base.setButtons(op1button, op2button, op3button);
         base.setCounters(statementView);
-
+        //Hide answer button.
         aText.setVisibility(View.INVISIBLE);
+        //Set answers to questions.
         if(Theme.getInstance().getThemes().get(i).getDatapath().equals("involvementQuestions")) {
             answerList.add("Leikki on jokaisella omanlaista. Lapset saavat päättää leikistä, kunhan se ei aiheuta vaaraa tai uhkaa millekään tai kenellekään.");
             answerList.add("Vanhempien tehtävä on varmistaa, että jokaisen lapsen oikeus koulutukseen toteutuu.");
@@ -144,8 +145,10 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op3")){
             score.increasePoints(2);
+            //Correct answer bell sound.
             mp.start();
         }else{
+            //Wrong answer bell sound.
             ep.start();
         }
         answerView();
