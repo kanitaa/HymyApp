@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,8 @@ public class NewUserActivity extends AppCompatActivity {
     }
 
     public void backToMainActivity(View view) { // This function is on "OK" button under user input fields
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
 
         EditText editName = findViewById(R.id.editName); // Getting the input elements into variables
         EditText editAge = findViewById(R.id.editAge);

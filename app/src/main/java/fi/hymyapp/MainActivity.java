@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     User user = new User();
 
 
+    /**
+     *
+     * Executes when MainActivity is created. Created a MediaPlayer variable for the sound effects in the buttons.
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openNewUserActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        mp.start();
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(userInputActivity); // Starting userInputActivity
     }
