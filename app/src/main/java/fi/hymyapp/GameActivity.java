@@ -73,7 +73,7 @@ public class GameActivity extends AppCompatActivity {
     public void option1(View view){
         //Sound for button click
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
+        final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
         //when option is clicked, increase value by 1
         int newValue = base.getOp1Value() + 1;
         //and set database value to match this new value
@@ -85,6 +85,9 @@ public class GameActivity extends AppCompatActivity {
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
             score.increasePoints(2);
+            mp.start();
+        }else{
+            ep.start();
         }
 
         //after increasing database value, show new question
@@ -92,7 +95,7 @@ public class GameActivity extends AppCompatActivity {
     }
     public void option2(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
+        final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
         int newValue =base.getOp2Value()+1;
         base.getOp2Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
@@ -104,12 +107,15 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
             score.increasePoints(2);
+            mp.start();
+        }else{
+            ep.start();
         }
         answerView();
     }
     public void option3(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
+        final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
         int newValue = base.getOp3Value()+1;
         base.getOp3Counter().setValue(newValue);
         newValue = base.getTotalValue()+1;
@@ -119,6 +125,9 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op3")){
             score.increasePoints(2);
+            mp.start();
+        }else{
+            ep.start();
         }
         answerView();
     }

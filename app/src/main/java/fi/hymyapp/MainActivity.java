@@ -20,7 +20,7 @@ import android.widget.TextView;
 /**
  * @author Daniel Heugenhauser
  * @author Taru Vikströn
- *
+ * @version 1
  * Main Activity class for the app.
  */
 
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
              * Start button sound effect
              * <p>
              * This method is called when a item on the list is selected.
-             *
              * @param adapterView Listener for the List
              * @param view Building block for interface components
              * @param i Index of clicked item
