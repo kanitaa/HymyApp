@@ -164,7 +164,7 @@ public class ChartActivity extends AppCompatActivity {
      */
     private void updateFirebase(){
             //if path isnt already max (max question amount)
-            if(pathNumber!=2) {
+            if(pathNumber!=10) {
                 pathNumber += 1;
                 //update path with new value to get another question info from database
                 GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
