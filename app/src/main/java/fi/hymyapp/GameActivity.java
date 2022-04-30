@@ -65,8 +65,29 @@ public class GameActivity extends AppCompatActivity {
         base.setCounters(statementView);
 
         aText.setVisibility(View.INVISIBLE);
-        answerList.add("vastaus1");
-        answerList.add("vastaus2");
+        if(Theme.getInstance().getThemes().get(i).getDatapath().equals("involvementQuestions")) {
+            answerList.add("Leikki on jokaisella omanlaista. Lapset saavat päättää leikistä, kunhan se ei aiheuta vaaraa tai uhkaa millekään tai kenellekään.");
+            answerList.add("Vanhempien tehtävä on varmistaa, että jokaisen lapsen oikeus koulutukseen toteutuu.");
+            answerList.add("Pyörätuoli ei estä koripalloa, eikä muutakaan urheilua. Melkein kaikkea urheilua voi harrastaa apuvälineillä ja omalla tavallaan. ");
+            answerList.add("Lasten oikeuksissa sanotaan, että lasten mielipide pitää ottaa huomioon, kun päätetään heitä koskevia asioita. Aikuisten tehtävä on ottaa lapsen mielipide huomioon. Isot päätökset tekee aina aikuinen.");
+            answerList.add("Sinulla on oikeus olla eri mieltä ja hakea tietoa ja ilmaista itseäsi sinulle parhaiten sopivalla tavalla, joka ei loukkaa muita. Aikuisten tehtävä on kuunnella lapsia myös silloin, kun he ovat eri mieltä.");
+            answerList.add("Totta ja totta. Saat valita, kunhan vaatteet sopivat säähän. Esimerkiksi aikuinen päättää, että laitetaan säähän sopivat vaatteet, mutta lapsi saa päättää millaiset. Aikuisten tehtävä on huolehtia, että lapsilla on tarpeeksi vaatteita ja ruokaa.");
+            answerList.add("Lasten oikeuksissa sanotaan, että jokaisella lapsella tulee olla aikuinen, joka välittää ja hoitaa juuri hänestä. Lasten ei tarvitse huolehtia aikuisten asioista. ");
+            answerList.add("Koti on tosi tärkeä. Lasten oikeuksissa todetaan, että jokaisella lapsella pitää olla koti, jossa asuu.");
+            answerList.add(" Aikuisten tehtävä on hoitaa lapsia hyvin. Hyvä hoitaminen tarkoittaa sitä, että peliajasta päättää aikuinen, jos lapsi pelaa liikaa tai ei halua noudattaa pelien ikärajoja.");
+            answerList.add("Aikuisten pitää aina miettiä mikä on lapselle parasta ja tehdä päätöksiä sen mukaan.");
+        }else{
+            answerList.add("Kaikilla lapsilla on oikeus leikkiin. Ketään ei saa syrjiä eikä kiusata. ");
+            answerList.add("Aikuisten tehtävä on kuunnella lapsia. Lapsen tärkeiden asioiden kuuluu olla aikuisillekin tärkeitä.");
+            answerList.add("Lapset pitää ottaa mukaan suunnitteluun. Aikuisten on tehtävä päätöksiä kuunnellen lapsia.");
+            answerList.add("Se, kun tapaa samassa tilanteessa olevia lapsia ja juttelee heidän kanssaan, on nimeltään vertaistuki. Se auttaa, kun tajuaa, että on muitakin, joilla on se sama.");
+            answerList.add("Joskus voi olla hankalaa, jos leikkiin ei mahdu kaikki halukkaat mukaan. Kun leikkiä suunnitellaan, on hyvä koittaa keksiä yhdessä, kuinka se olisi mahdollista. Leikin ulkopuolelle jääminen on kurja tunne ja se, jos joku häiritsee leikkiä.");
+            answerList.add("Jokaisen mielipide on yhtä tärkeä. Kun ryhmässä äänestetään esimerkiksi juhlien herkuista, kaikilla on yksi ääni, jolla äänestää. Aikuisten tehtävä on selvittää lapsen mielipide, vaikka lapsi ei osaisi puhua.");
+            answerList.add("Leikkiä saa ihan miten haluaa, kunhan ei satuta tai tahallaan riko mitään. Lelut on hyvä siivota, kun leikki loppuu.  Silloin löytää ne helpommin, kun tarvitsee niitä uudelleen.");
+            answerList.add("Lapsi saa ehdottaa mitä vaan, ja aikuisen tehtävä on kuunnella ja ottaa ehdotus huomioon. Kaikkia ehdotuksia ei voi kuitenkaan aina toteuttaa.");
+            answerList.add("Jos lapset eivät itse saa sovittua, aikuisen tehtävä on auttaa lapsia sopimaan.");
+            answerList.add("Kun aikuinen huomaa hyvän ja kehuu, lapset tietää, kuinka ihania ja taitavia he ovat.");
+        }
     }
 
     //onclick functions for option buttons
@@ -101,8 +122,6 @@ public class GameActivity extends AppCompatActivity {
         newValue = base.getTotalValue()+1;
         base.getTotalCounter().setValue(newValue);
 
-
-
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
@@ -132,9 +151,8 @@ public class GameActivity extends AppCompatActivity {
         answerView();
     }
     private void changeQuestion(){
-        if(pathNumber!=2)
+        if(pathNumber!=10)
         {
-
             //increase pathnumber by one, to access next question in database
             pathNumber+=1;
             //change db references to match correct question number
@@ -170,6 +188,5 @@ public class GameActivity extends AppCompatActivity {
         op2button.setVisibility(View.VISIBLE);
         op3button.setVisibility(View.VISIBLE);
         changeQuestion();
-
     }
 }
