@@ -20,6 +20,8 @@ import android.widget.TextView;
 /**
  * @author Daniel Heugenhauser
  * @author Taru Vikströn
+ *
+ * Main Activity class for the app.
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -28,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     *
-     * Executes when MainActivity is created. Created a MediaPlayer variable for the sound effects in the buttons.
+     * Creates a MediaPlayer variable for the sound effects in the buttons.
+     * Sets ListView element for the main activity layout.
+     * Sets a new ArrayAdapter witch uses list item layout. And get sets all the themes from the singleton class into the ListView.
+     * Sets a Listener for the list items.
+     * <p>
+     * This method is called when MainActivity is created
      * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
      */
     @Override
@@ -43,6 +49,17 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 Theme.getInstance().getThemes()));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             * Gets index of clicked item. Build an intent and include the index in in intent - it can be used in next activity.
+             * Start button sound effect
+             * <p>
+             * This method is called when a item on the list is selected.
+             *
+             * @param adapterView Listener for the List
+             * @param view Building block for interface components
+             * @param i Index of clicked item
+             * @param l The row id of the item that was clicked.
+             */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 mp.start();
