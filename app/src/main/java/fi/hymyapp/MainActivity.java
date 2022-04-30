@@ -5,6 +5,7 @@ import static android.view.View.GONE;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Person;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-
         ListView lv =findViewById(R.id.themesListView);
+        //Custon layout for list items.
         lv.setAdapter(new ArrayAdapter<Themes>(this,
-                android.R.layout.simple_list_item_1,
+                R.layout.adapter_view_layout,R.id.listItem,
                 Theme.getInstance().getThemes()));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**
