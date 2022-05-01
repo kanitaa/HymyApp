@@ -11,9 +11,9 @@ public class Themes {
 
 
     /**
-     *
-     * @param name
-     * @param path
+     *Constructor for Themes class
+     * @param name Name of the theme.
+     * @param path Datapath for the database reference.
      */
     Themes(String name,String path){
 
@@ -22,14 +22,14 @@ public class Themes {
     }
     /**
      *
-     * @return
+     * @return Returns name of the theme.
      */
     public String toString(){
         return name;
     }
     /**
      *
-     * @return
+     * @return Return the path value of the theme.
      */
     public String getDatapath(){
         return path;

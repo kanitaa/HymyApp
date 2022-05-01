@@ -65,7 +65,7 @@ public class GameActivity extends AppCompatActivity {
         base.setCounters(statementView);
         //Hide answer button.
         aText.setVisibility(View.INVISIBLE);
-        //Set answers to questions.
+        //Set answers to questions in the answersList.
         if(Theme.getInstance().getThemes().get(i).getDatapath().equals("involvementQuestions")) {
             answerList.add("Leikki on jokaisella omanlaista. Lapset saavat päättää leikistä, kunhan se ei aiheuta vaaraa tai uhkaa millekään tai kenellekään.");
             answerList.add("Vanhempien tehtävä on varmistaa, että jokaisen lapsen oikeus koulutukseen toteutuu.");

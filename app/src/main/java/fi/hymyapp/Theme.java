@@ -39,7 +39,7 @@ public class Theme {
     }
 
     /**
-     *
+     * This method is called when accessing themes
      * @return returns list of themes
      */
     public List<Themes> getThemes(){return themesList;}
