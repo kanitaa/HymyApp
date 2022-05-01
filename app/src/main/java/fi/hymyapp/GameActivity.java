@@ -183,8 +183,6 @@ public class GameActivity extends AppCompatActivity {
     }
     //Show all Ui elements and close results button
     public void nextQuestion(View view){
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
         aText.setVisibility(View.INVISIBLE);
         statementView.setVisibility(View.VISIBLE);
         op1button.setVisibility(View.VISIBLE);
