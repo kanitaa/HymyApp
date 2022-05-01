@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample3);
         ListView lv =findViewById(R.id.themesListView);
         //Custom layout for list items.
         lv.setAdapter(new ArrayAdapter<Themes>(this,
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mp.start();
                 Intent nextActivity=new Intent(MainActivity.this,GameActivity.class);
                 nextActivity.putExtra(EXTRA,i);
                 startActivity(nextActivity);

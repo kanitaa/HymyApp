@@ -3,6 +3,8 @@ package fi.hymyapp;
 import static fi.hymyapp.MainActivity.EXTRA;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +41,13 @@ public class ChartActivity extends AppCompatActivity {
     Score score;
     TextView scoreView;
 
-
+    /**
+     * When back button is pressed in ChartActivity it returns to MainActivity.
+     */
+    public void onBackPressed(){
+        Intent nextActivity=new Intent(ChartActivity.this,MainActivity.class);
+        startActivity(nextActivity);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +73,7 @@ public class ChartActivity extends AppCompatActivity {
         base.setCounters(statementView);
         //hide statementView, its needed for parameter but not used in this activity
         statementView.setVisibility(View.GONE);
-
-
     }
-
 
     /**
      * Combines all methods that are required for drawing a new barchart.
