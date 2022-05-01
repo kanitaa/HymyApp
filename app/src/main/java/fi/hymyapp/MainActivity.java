@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample3);
         ListView lv =findViewById(R.id.themesListView);
         //Custon layout for list items.
         lv.setAdapter(new ArrayAdapter<Themes>(this,
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mp.start();
                 Intent nextActivity=new Intent(MainActivity.this,GameActivity.class);
                 nextActivity.putExtra(EXTRA,i);
                 startActivity(nextActivity);
@@ -108,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openNewUserActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(userInputActivity); // Starting userInputActivity
     }
