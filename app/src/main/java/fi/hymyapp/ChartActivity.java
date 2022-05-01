@@ -41,6 +41,9 @@ public class ChartActivity extends AppCompatActivity {
     Score score;
     TextView scoreView;
 
+    /**
+     * When back button is pressed in ChartActivity it returns to MainActivity.
+     */
     public void onBackPressed(){
         Intent nextActivity=new Intent(ChartActivity.this,MainActivity.class);
         startActivity(nextActivity);
