@@ -77,20 +77,16 @@
         android:id="@+id/answerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
         android:background="@drawable/rounded_corners2"
         android:onClick="nextQuestion"
         android:paddingHorizontal="40dp"
-        android:soundEffectsEnabled="false"
+        android:soundEffectsEnabled="true"
         android:text="Button"
-        android:textSize="20sp"
         app:backgroundTint="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
-
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="213dp"
