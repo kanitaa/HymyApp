@@ -10,6 +10,7 @@
         android:id="@+id/nameTextView"
         android:layout_width="218dp"
         android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/firasans_bold"
         android:text="Mikä on sinun nimesi?"
@@ -80,9 +81,49 @@
         android:background="@drawable/rounded_corners"
         android:onClick="backToMainActivity"
         android:text="OK"
+        app:backgroundTint="@color/violet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAge" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="213dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="177dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="-25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="283dp"
+        android:layout_height="326dp"
+        android:layout_marginBottom="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/elementti2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="133dp"
+        android:layout_height="241dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="-60dp"
+        android:rotationX="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/elementti3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

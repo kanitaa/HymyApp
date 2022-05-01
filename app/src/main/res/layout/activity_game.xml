@@ -9,25 +9,25 @@
 
     <Button
         android:id="@+id/option1Button"
-        android:layout_width="93dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
         android:layout_marginStart="150dp"
         android:layout_marginTop="74dp"
         android:layout_marginEnd="150dp"
         android:background="@drawable/rounded_corners"
-        android:backgroundTint="#E91E63"
         android:fontFamily="@font/firasans_regular"
         android:onClick="option1"
         android:soundEffectsEnabled="false"
-        android:text="Totta"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statementText" />
+        app:layout_constraintTop_toBottomOf="@+id/statementText"
+        app:backgroundTint="@color/green" />
 
     <TextView
         android:id="@+id/statementText"
-        android:layout_width="220dp"
-        android:layout_height="91dp"
+        android:layout_height="wrap_content"
+        android:layout_width="250dp"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/firasans_bold"
         android:text="Hello World!"
@@ -40,45 +40,90 @@
 
     <Button
         android:id="@+id/option2Button"
-        android:layout_width="95dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/rounded_corners2"
-        android:fontFamily="@font/firasans_regular"
-        android:onClick="option2"
-        android:soundEffectsEnabled="false"
-        android:text="Paskaa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/option1Button" />
-
-    <Button
-        android:id="@+id/option3Button"
-        android:layout_width="97dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
         android:layout_marginStart="150dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="150dp"
         android:background="@drawable/rounded_corners"
+        android:fontFamily="@font/firasans_regular"
+        android:onClick="option2"
+        android:soundEffectsEnabled="false"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option1Button"
+        app:backgroundTint="@color/violet" />
+
+    <Button
+        android:id="@+id/option3Button"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#D30BDA"
         android:fontFamily="@font/firasans_regular"
         android:onClick="option3"
         android:soundEffectsEnabled="false"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/option2Button" />
+        app:layout_constraintTop_toBottomOf="@+id/option2Button"
+        app:backgroundTint="@color/green" />
 
     <Button
         android:id="@+id/answerButton"
-        android:layout_width="239dp"
-        android:layout_height="159dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="252dp"
+        android:background="@drawable/rounded_corners2"
         android:onClick="nextQuestion"
         android:text="Button"
+        android:paddingHorizontal="40dp"
+        app:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="213dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="177dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="-25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti5" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="283dp"
+        android:layout_height="326dp"
+        android:layout_marginBottom="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/elementti2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="133dp"
+        android:layout_height="241dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="-60dp"
+        android:rotationX="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/elementti3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
