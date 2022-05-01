@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA = "com.example.myfirstapp.MESSAGE";
     User user = new User();
 
-
     /**
      * Creates a MediaPlayer variable for the sound effects in the buttons.
      * Sets ListView element for the main activity layout.
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         ListView lv =findViewById(R.id.themesListView);
-        //Custon layout for list items.
+        //Custom layout for list items.
         lv.setAdapter(new ArrayAdapter<Themes>(this,
                 R.layout.adapter_view_layout,R.id.listItem,
                 Theme.getInstance().getThemes()));
@@ -74,9 +73,16 @@ public class MainActivity extends AppCompatActivity {
         updateUI(); // UI needs updating
     }
 
-    public void updateUI() { //This function can be called whenever changes have been made to the Activity elements and they need to be updated
+    /**
+     * UpdateUI function is called in situations when activity view needs changes.
+     * The function takes a button, a list view, a text view and shared preferences into variables.
+     * If user has no saved preferences, the button is visible and list and text views are invisible.
+     * However if the user is known and there are saved preferences, the button is invisible, list and text views are visible.
+     * The text view is set to have a text that takes key values from preferences to greet the person by their name and age.
+     */
+    private void updateUI() { //This function can be called whenever changes have been made to the Activity elements and they need to be updated
         Button continueButton = findViewById(R.id.newUserButton);
-        ListView lv =findViewById(R.id.themesListView);
+        ListView lv = findViewById(R.id.themesListView);
         TextView greetUser = findViewById(R.id.greetUserText);
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
 
@@ -92,11 +98,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void userPrefReader() { // This functions reads from the preferences
+    /**
+     *  userPrefReader functions takes Shared preferences as a variable and reads the saved key values.
+     *  new user is created with the values gotten from the shared preferences. If there were no saved preferences, starter key values are given.
+     */
+    private void userPrefReader() { // This functions reads from the preferences
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         user = new User(userPrefGet.getString("nameKey", ""), userPrefGet.getInt("ageKey", 0), userPrefGet.getBoolean("newUserKey", true));
     }
 
+    /**
+     * resetPrefs function resets the existing preferences back to the starter values.
+     * Shared preferences and it's editor is taken as variables to change the values and commit them.
+     * updateUI function is called at the end to do the possible visual changes to the activity
+     * @param view a visual building block that responds to user inputs
+     */
     public void resetPrefs(View view) { // This function resets the user prefs, then new user input is needed before quizzes open again
         SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
@@ -107,9 +123,12 @@ public class MainActivity extends AppCompatActivity {
         updateUI(); // UI needs updating
     }
 
+    /**
+     * openNewUserActivity function is bound to an on-click of a button and is called when it's clicked.
+     * Intent is taken into a variable and it has the information of the starting activity and the activity that it starts, which is userInputActivity
+     * @param view a visual building block that responds to user inputs
+     */
     public void openNewUserActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
-        mp.start();
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(userInputActivity); // Starting userInputActivity
     }
