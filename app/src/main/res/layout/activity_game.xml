@@ -75,14 +75,14 @@
 
     <Button
         android:id="@+id/answerButton"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
         android:background="@drawable/rounded_corners2"
         android:onClick="nextQuestion"
-        android:soundEffectsEnabled="false"
-        android:text="Button"
         android:paddingHorizontal="40dp"
+        android:soundEffectsEnabled="true"
+        android:text="Button"
         app:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
