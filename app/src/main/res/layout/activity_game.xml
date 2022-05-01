@@ -80,6 +80,7 @@
         android:layout_marginTop="252dp"
         android:background="@drawable/rounded_corners2"
         android:onClick="nextQuestion"
+        android:soundEffectsEnabled="false"
         android:text="Button"
         android:paddingHorizontal="40dp"
         app:backgroundTint="@color/green"
