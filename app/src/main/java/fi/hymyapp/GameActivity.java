@@ -72,7 +72,7 @@ public class GameActivity extends AppCompatActivity {
             answerList.add("Pyörätuoli ei estä koripalloa, eikä muutakaan urheilua. Melkein kaikkea urheilua voi harrastaa apuvälineillä ja omalla tavallaan. ");
             answerList.add("Lasten oikeuksissa sanotaan, että lasten mielipide pitää ottaa huomioon, kun päätetään heitä koskevia asioita. Aikuisten tehtävä on ottaa lapsen mielipide huomioon. Isot päätökset tekee aina aikuinen.");
             answerList.add("Sinulla on oikeus olla eri mieltä ja hakea tietoa ja ilmaista itseäsi sinulle parhaiten sopivalla tavalla, joka ei loukkaa muita. Aikuisten tehtävä on kuunnella lapsia myös silloin, kun he ovat eri mieltä.");
-            answerList.add("Totta ja totta. Saat valita, kunhan vaatteet sopivat säähän. Esimerkiksi aikuinen päättää, että laitetaan säähän sopivat vaatteet, mutta lapsi saa päättää millaiset. Aikuisten tehtävä on huolehtia, että lapsilla on tarpeeksi vaatteita ja ruokaa.");
+            answerList.add("Totta, saat valita, kunhan vaatteet sopivat säähän. Esimerkiksi aikuinen päättää, että laitetaan säähän sopivat vaatteet, mutta lapsi saa päättää millaiset. Aikuisten tehtävä on huolehtia, että lapsilla on tarpeeksi vaatteita ja ruokaa.");
             answerList.add("Lasten oikeuksissa sanotaan, että jokaisella lapsella tulee olla aikuinen, joka välittää ja hoitaa juuri hänestä. Lasten ei tarvitse huolehtia aikuisten asioista. ");
             answerList.add("Koti on tosi tärkeä. Lasten oikeuksissa todetaan, että jokaisella lapsella pitää olla koti, jossa asuu.");
             answerList.add(" Aikuisten tehtävä on hoitaa lapsia hyvin. Hyvä hoitaminen tarkoittaa sitä, että peliajasta päättää aikuinen, jos lapsi pelaa liikaa tai ei halua noudattaa pelien ikärajoja.");

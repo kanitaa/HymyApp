@@ -14,13 +14,28 @@ import android.view.View;
 import android.widget.EditText;
 
 public class NewUserActivity extends AppCompatActivity {
-
+    /**
+     * @author Taru Vikström
+     * @version 1
+     * In the NewUserActivity class the user gets to input their name and age and the values are saved into preferences.
+     * The class also contains a validation system for the user input text fields.
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
     }
 
+    /**
+     * backToMainActivity function is called when a button is being pressed that has this function as it's on click parameter.
+     * The function takes edit text fields for name and age as variables and passes the values into string variables.
+     * userName and userAge string variables are then checked by sending them as parameters to their corresponding validator functions, which will send a boolean value.
+     * If either of the validator checks returns false value, the function doesn't continue further.
+     * If validator checks both return true, the function makes a new intent with current activity and the main activity as it's parameters,
+     * calls for userPrefEdit function to save new values to the preferences and then changes the activity back to main activity.
+     * @param view a visual building block that responds to user inputs.
+     */
     public void backToMainActivity(View view) { // This function is on "OK" button under user input fields
 
         EditText editName = findViewById(R.id.editName); // Getting the input elements into variables
@@ -39,6 +54,11 @@ public class NewUserActivity extends AppCompatActivity {
         startActivity(backToMainActivity); // Swapping back to Main Activity
     }
 
+    /**
+     * userPrefEdit function has shared preferences and it's editor as variables to add new values, that have been sent by parameter to the function, to the preferences and commit the changes.
+     * @param name is the String value that the user wrote to the input field (see backToMainActivity function)
+     * @param age is the integer value that the user wrote to the input field (see backToMainActivity function)
+     */
     private void userPrefEdit(String name, int age) { // This function saves the sent parameters as key values to preferences
         SharedPreferences userPrefPut = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor userPrefEditor = userPrefPut.edit();
@@ -48,6 +68,13 @@ public class NewUserActivity extends AppCompatActivity {
         userPrefEditor.commit(); // Committing the changes to the preferences
     }
 
+    /**
+     * nameInputValidator validates the String that has been sent to it as a parameter and returns a boolean depending if the checks went through or not.
+     * The function takes the corresponding edit text element as a variable in order to be able to set error messages that gives the user information, what was wrong with their input.
+     * The value must be not empty, between 3-12 characters, contain only letters and special chars (.) ( ) and (-).
+     * @param name is the String value that the user wrote to the input field (see backToMainActivity function)
+     * @return tells if the checks went through (true) or if the string input was not valid (false)
+     */
     private boolean nameInputValidator(String name) { // This validator function goes through various checks for name String that was sent as a parameter and returns a boolean
 
         EditText editName = findViewById(R.id.editName); // Taking the input field as a variable in order to be able to set error texts to it
@@ -67,6 +94,13 @@ public class NewUserActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * ageInputValidator validates the integer that has been sent to it as a parameter and returns a boolean depending if the checks went through or not.
+     * The function takes the corresponding edit text element as a variable in order to be able to set error messages that gives the user information, what was wrong with their input.
+     * The value must not be empty, it has to be between 1-99 and must contain of only numbers from 0 to 9.
+     * @param age is the integer value that the user wrote to the input field (see backToMainActivity function)
+     * @return tells if the checks went through (true) or if the integer input was not valid (false)
+     */
     private boolean ageInputValidator(String age) { // This validator function goes through various checks for age String that was sent as a parameter and returns a boolean
 
         EditText editAge = findViewById(R.id.editAge); // Taking the input field as a variable in order to be able to set error texts to it
