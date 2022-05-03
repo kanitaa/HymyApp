@@ -3,20 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.25" />
-        <entry key="..\:/AndroidProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_chart.xml" value="0.28894927536231885" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.25" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.3242753623188406" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/activity_new_user.xml" value="0.28894927536231885" />
         <entry key="..\:/Users/danie/Desktop/HymyApp/app/src/main/res/layout/adapter_view_layout.xml" value="0.22" />
+        <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_chart.xml" value="0.33" />
         <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_game.xml" value="0.25" />
         <entry key="..\:/Users/janit/AndroidStudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/drawable/round.xml" value="0.404" />
-        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_chart.xml" value="0.5498188405797102" />
-        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_new_user.xml" value="0.458786231884058" />
-        <entry key="..\:/Users/taruv/StudioProjects/HymyApp/app/src/main/res/layout/activity_thanks_for_answering.xml" value="0.5541666666666667" />
       </map>
     </option>
   </component>
