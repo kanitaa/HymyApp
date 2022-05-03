@@ -166,7 +166,7 @@ public class GameActivity extends AppCompatActivity {
 
         }else{
             //last question answered, change activity
-            Intent lastActivity = new Intent(GameActivity.this,ChartActivity.class);
+            Intent lastActivity = new Intent(GameActivity.this, ThanksForAnsweringActivity.class);
             lastActivity.putExtra(EXTRA,score.toString());
             startActivity(lastActivity);
         }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThanksForAnsweringActivity">
+
+    <TextView
+        android:id="@+id/scoreInformationText"
+        android:layout_width="268dp"
+        android:layout_height="241dp"
+        android:fontFamily="@font/firasans_bold"
+        android:text="Tähän tulee score tekstiä"
+        android:textAlignment="center"
+        android:textColor="#964B9D"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <Button
+        android:id="@+id/backToMainActivity"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/firasans_bold"
+        android:onClick="backToMainActivity"
+        android:soundEffectsEnabled="true"
+        android:text="Takaisin"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:visibility="visible"
+        app:backgroundTint="@color/green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
+
+    <TextView
+        android:id="@+id/thanksForAnsweringText"
+        android:layout_width="268dp"
+        android:layout_height="241dp"
+        android:fontFamily="@font/firasans_bold"
+        android:text="Kiitos kun kerroit mielipiteesi. Se on tärkeä. Jos joku asia jäi mietityttämään, jatka juttelua tutun aikuisen kanssa. Olet huippu ja tärkeä!"
+        android:textAlignment="center"
+        android:textColor="#964B9D"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="213dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti1" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="177dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="-25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/elementti5" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="283dp"
+        android:layout_height="326dp"
+        android:layout_marginBottom="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/elementti2" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="133dp"
+        android:layout_height="241dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="-60dp"
+        android:rotationX="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/elementti3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

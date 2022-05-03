@@ -2,5 +2,5 @@
     <string name="app_name">HymyApp</string>
     <string name="edit_Age">ikäsi</string>
     <string name="edit_name">nimesi</string>
-    <string name="resetPrefsButton">reset prefs</string>
+    <string name="resetPrefsButton">Uusi käyttäjä</string>
 </resources>

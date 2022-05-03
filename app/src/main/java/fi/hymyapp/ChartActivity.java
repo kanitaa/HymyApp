@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @author Janita Korhonen
  * @version 1
  * A class for final activity in the application.
- * Showing results and drawing barchart based on Firebase data.
+ * Drawing barchart based on Firebase data.
  */
 public class ChartActivity extends AppCompatActivity {
 
@@ -37,10 +37,8 @@ public class ChartActivity extends AppCompatActivity {
     String op2="b";
     String op3="c";
 
-    //variables for score class
-    Score score;
-    TextView scoreView;
-
+    boolean involvementChartActive=false;
+    boolean rightsChartActive=false;
     /**
      * When back button is pressed in ChartActivity it returns to MainActivity.
      */
@@ -54,35 +52,60 @@ public class ChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
-        scoreView = (TextView) findViewById(R.id.scoreText);
         statementView = (TextView) findViewById(R.id.statementView);
         barChart = findViewById(R.id.barchart);
-
-        //update database datapath to show first question
-        GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
-
-        //get score from previous activity
-        Bundle b = getIntent().getExtras();
-        String scoreAmount =b.getString(EXTRA,"");
-        // and set it to final screen
-        score = new Score(Integer.parseInt(scoreAmount));
-        scoreView.setText(score.checkResult());
-
+        GameActivity.dbpath = "involvementQuestions/question"+pathNumber;
         //get database values for charts
         base = new GetFirebase();
         base.setCounters(statementView);
+
+        involvementChartActive=true;
         //hide statementView, its needed for parameter but not used in this activity
         statementView.setVisibility(View.GONE);
     }
 
     /**
-     * Combines all methods that are required for drawing a new barchart.
+     * Defines which questions will be shown in dataChart
      * <p>
-     * This method is called when chart button is clicked.
+     * This method is called when involvement chart button is clicked.
      * @param view is responsible for drawing chart on UI
      */
-    //onclick event for datachart button
-    public void setChart(View view){
+    public void activateInvolvementQuestions(View view){
+        if(!involvementChartActive){
+            pathNumber = 1;
+            GameActivity.dbpath = "involvementQuestions/question"+pathNumber;
+            //get database values for charts
+            base = new GetFirebase();
+            base.setCounters(statementView);
+            involvementChartActive=true;
+            rightsChartActive=false;
+        }
+        setChart();
+    }
+    /**
+     * Defines which questions will be shown in dataChart
+     * <p>
+     * This method is called when rights chart button is clicked.
+     * @param view is responsible for drawing chart on UI
+     */
+    public void activateRightsQuestions(View view){
+        if(!rightsChartActive){
+            pathNumber = 1;
+            GameActivity.dbpath = "rightsQuestions/question"+pathNumber;
+            //get database values for charts
+            base = new GetFirebase();
+            base.setCounters(statementView);
+            rightsChartActive=true;
+            involvementChartActive=false;
+        }
+        setChart();
+    }
+    /**
+     * Combines all methods that are required for drawing a new barchart.
+     * <p>
+     * This method is called when one of the chart button is clicked.
+     */
+    public void setChart(){
             op1 = base.getOp1();
             op2 = base.getOp2();
             op3 = base.getOp3();
@@ -133,7 +156,6 @@ public class ChartActivity extends AppCompatActivity {
         barChart.getDescription().setEnabled(false);
         barChart.invalidate(); // refresh
 
-
     }
 
     /**
@@ -172,13 +194,21 @@ public class ChartActivity extends AppCompatActivity {
             if(pathNumber!=10) {
                 pathNumber += 1;
                 //update path with new value to get another question info from database
-                GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
+                if(involvementChartActive){
+                    GameActivity.dbpath = "involvementQuestions/question"+pathNumber;
+                }else{
+                    GameActivity.dbpath = "rightsQuestions/question"+pathNumber;
+                }
                 base = new GetFirebase();
                 base.setCounters(statementView);
             } else{
                 //if path is maxed out, start showing questions all over again from start
                 pathNumber = 1;
-                GameActivity.dbpath = GameActivity.dbTemp+pathNumber;
+                if(involvementChartActive){
+                    GameActivity.dbpath = "involvementQuestions/question"+pathNumber;
+                }else{
+                    GameActivity.dbpath = "rightsQuestions/question"+pathNumber;
+                }
                 base = new GetFirebase();
                 base.setCounters(statementView);
             }

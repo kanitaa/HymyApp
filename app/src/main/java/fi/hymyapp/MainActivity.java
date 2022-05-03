@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.app.Person;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -83,16 +85,19 @@ public class MainActivity extends AppCompatActivity {
         Button continueButton = findViewById(R.id.newUserButton);
         ListView lv = findViewById(R.id.themesListView);
         TextView greetUser = findViewById(R.id.greetUserText);
+        ImageView logoImage = findViewById(R.id.logoImage);
         SharedPreferences userPrefGet = getSharedPreferences("UserPrefs", Activity.MODE_PRIVATE);
 
         if(userPrefGet.getBoolean("newUserKey", true)) { // If the user is new, the quizzes are not visible and continue button is visible
+            logoImage.setVisibility(View.VISIBLE);
             continueButton.setVisibility(View.VISIBLE);
             lv.setVisibility(GONE);
             greetUser.setVisibility(GONE);
         } else { // If the user is known, greeting text is visible, the quiz list is visible and the continue button is hidden
+            logoImage.setVisibility(GONE);
             continueButton.setVisibility((GONE));
             lv.setVisibility(View.VISIBLE);
-            greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta!");
+            greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta ja tervetuloa kertomaan mielipiteesi lasten asioista!");
             greetUser.setVisibility(View.VISIBLE);
         }
     }
@@ -107,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * resetPrefs function resets the existing preferences back to the starter values.
+     * resetPrefs function resets the existing preferences back to the starter values and is bound to a button "uusi käyttäjä".
      * Shared preferences and it's editor is taken as variables to change the values and commit them.
      * updateUI function is called at the end to do the possible visual changes to the activity
      * @param view a visual building block that responds to user inputs
@@ -123,12 +128,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * openNewUserActivity function is bound to an on-click of a button and is called when it's clicked.
+     * openNewUserActivity function is bound to an on-click of a button "aloita" and is called when it's clicked.
      * Intent is taken into a variable and it has the information of the starting activity and the activity that it starts, which is userInputActivity
      * @param view a visual building block that responds to user inputs
      */
     public void openNewUserActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
         Intent userInputActivity = new Intent(MainActivity.this, NewUserActivity.class);
         startActivity(userInputActivity); // Starting userInputActivity
+    }
+
+    /**
+     * openChartActivity function is bound to an on-click of a button "vastaukset" and is called when it's clicked.
+     * @param view a visual building block that responds to user inputs
+     */
+    public void openChartActivity(View view) { // This function is to onClick of the continue button that leads to a new activity
+        Intent chartActivity = new Intent(MainActivity.this, ChartActivity.class);
+        startActivity(chartActivity); // Starting ChartActivity
     }
 }

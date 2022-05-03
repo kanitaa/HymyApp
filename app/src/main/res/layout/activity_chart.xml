@@ -7,14 +7,31 @@
     tools:context=".ChartActivity">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/osallisuusButton"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="238dp"
+        android:background="@drawable/rounded_corners"
+        android:onClick="activateInvolvementQuestions"
+        android:text="osallisuus"
+        app:backgroundTint="@color/violet" />
+
+    <Button
+        android:id="@+id/oikeudetButton"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="42dp"
         android:background="@drawable/rounded_corners"
-        android:onClick="setChart"
-        android:text="DATACHART"
+        android:onClick="activateRightsQuestions"
+        android:text="oikeudet"
         app:backgroundTint="@color/violet" />
 
     <com.github.mikephil.charting.charts.BarChart
@@ -26,44 +43,11 @@
     </com.github.mikephil.charting.charts.BarChart>
 
     <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="212dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="42dp"
-        android:fontFamily="@font/firasans_regular"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="@color/pink"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="206dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="@font/firasans_bold"
-        android:text="PELI LÄPI!!"
-        android:textAlignment="center"
-        android:textColor="@color/violet"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/statementView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:fontFamily="@font/firasans_regular"
-        android:text="TextView"
-        android:textColor="@color/pink" />
+        android:text="TextView" />
 
 </RelativeLayout>
