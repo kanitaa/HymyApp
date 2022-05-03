@@ -11,6 +11,7 @@
         android:layout_width="96dp"
         android:layout_height="58dp"
         android:background="@drawable/rounded_corners2"
+        android:onClick="openChartActivity"
         android:soundEffectsEnabled="true"
         android:text="Vastaukset"
         android:textAlignment="center"
@@ -38,8 +39,8 @@
 
     <Button
         android:id="@+id/newUserButton"
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
         android:background="@drawable/round"
         android:fontFamily="@font/firasans_bold"
         android:onClick="openNewUserActivity"
@@ -79,18 +80,18 @@
         android:id="@+id/greetUserText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="10dp"
         android:fontFamily="@font/firasans_bold"
         android:text="Moi käyttäjä"
         android:textAlignment="center"
         android:textColor="#964B9D"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/themesListView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUserButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -131,5 +132,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/elementti3" />
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="136dp"
+        android:layout_height="205dp"
+        app:layout_constraintBottom_toTopOf="@+id/newUserButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742"
+        app:srcCompat="@drawable/lapsetontarkeitalogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

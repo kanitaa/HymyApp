@@ -11,12 +11,15 @@ import android.widget.TextView;
 
 public class ThanksForAnsweringActivity extends AppCompatActivity {
 
-    //variables for score class
     Score score;
     TextView scoreText;
     TextView thankYouForAnsweringText;
     boolean scoreChecked;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

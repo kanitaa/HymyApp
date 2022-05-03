@@ -13,12 +13,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * @author Taru Vikström
+ * @version 1
+ * In the NewUserActivity class the user gets to input their name and age and the values are saved into preferences.
+ * The class also contains a validation system for the user input text fields.
+ */
+
 public class NewUserActivity extends AppCompatActivity {
     /**
-     * @author Taru Vikström
-     * @version 1
-     * In the NewUserActivity class the user gets to input their name and age and the values are saved into preferences.
-     * The class also contains a validation system for the user input text fields.
      * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
      */
     @Override
