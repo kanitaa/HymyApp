@@ -50,6 +50,7 @@ public class ChartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_chart);
 
         statementView = (TextView) findViewById(R.id.statementView);

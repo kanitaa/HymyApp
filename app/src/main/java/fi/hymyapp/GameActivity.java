@@ -46,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
         Bundle b = getIntent().getExtras();
         int i =b.getInt(EXTRA,0);
@@ -91,6 +92,10 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Click function for first option button.
+     * @param view Parameter for interface components.
+     */
     //onclick functions for option buttons
     public void option1(View view){
         //Sound for button click
@@ -115,6 +120,11 @@ public class GameActivity extends AppCompatActivity {
         //after increasing database value, show new question
         answerView();
     }
+
+    /**
+     * Click function for second option button.
+     * @param view Parameter for interface components.
+     */
     public void option2(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
@@ -133,6 +143,11 @@ public class GameActivity extends AppCompatActivity {
         }
         answerView();
     }
+
+    /**
+     * Click function for third option button.
+     * @param view Parameter for interface components.
+     */
     public void option3(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
@@ -153,6 +168,10 @@ public class GameActivity extends AppCompatActivity {
         }
         answerView();
     }
+
+    /**
+     * Function for changing questions when answered.
+     */
     private void changeQuestion(){
         if(pathNumber!=10)
         {
@@ -171,6 +190,10 @@ public class GameActivity extends AppCompatActivity {
             startActivity(lastActivity);
         }
     }
+
+    /**
+     * Disables all UI elements and shows the answer to that question as a button.
+     */
     // Close all Ui elements and show results button
     private void answerView(){
         statementView.setVisibility(View.INVISIBLE);
@@ -181,6 +204,11 @@ public class GameActivity extends AppCompatActivity {
         aText.setText(answerList.get(listIndex));
         listIndex+=1;
     }
+
+    /**
+     * Disables a
+     * @param view
+     */
     //Show all Ui elements and close results button
     public void nextQuestion(View view){
         aText.setVisibility(View.INVISIBLE);

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample3);
         ListView lv =findViewById(R.id.themesListView);
