@@ -4,96 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ThanksForAnsweringActivity">
 
-    <Button
-        android:id="@+id/goToChartsButton"
-        android:layout_width="96dp"
-        android:layout_height="58dp"
-        android:background="@drawable/rounded_corners2"
-        android:soundEffectsEnabled="true"
-        android:text="Vastaukset"
+    <TextView
+        android:id="@+id/scoreInformationText"
+        android:layout_width="268dp"
+        android:layout_height="241dp"
+        android:fontFamily="@font/firasans_bold"
+        android:text="Tähän tulee score tekstiä"
         android:textAlignment="center"
-        android:textSize="8sp"
-        app:backgroundTint="@color/violet"
+        android:textColor="#964B9D"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
-
-    <ListView
-        android:id="@+id/themesListView"
-        android:layout_width="228dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="60dp"
-        android:soundEffectsEnabled="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greetUserText" />
+        app:layout_constraintVertical_bias="0.393" />
 
     <Button
-        android:id="@+id/newUserButton"
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:id="@+id/backToMainActivity"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/round"
         android:fontFamily="@font/firasans_bold"
-        android:onClick="openNewUserActivity"
+        android:onClick="backToMainActivity"
         android:soundEffectsEnabled="true"
-        android:text="Aloita"
+        android:text="Takaisin"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="26sp"
         android:visibility="visible"
         app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
-
-    <Button
-        android:id="@+id/resetPrefsButton"
-        android:layout_width="96dp"
-        android:layout_height="58dp"
-        android:background="@drawable/rounded_corners2"
-        android:onClick="resetPrefs"
-        android:soundEffectsEnabled="true"
-        android:text="@string/resetPrefsButton"
-        android:textAlignment="center"
-        android:textSize="11sp"
-        app:backgroundTint="@color/violet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintVertical_bias="0.819" />
 
     <TextView
-        android:id="@+id/greetUserText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="10dp"
+        android:id="@+id/thanksForAnsweringText"
+        android:layout_width="268dp"
+        android:layout_height="241dp"
         android:fontFamily="@font/firasans_bold"
-        android:text="Moi käyttäjä"
+        android:text="Kiitos kun kerroit mielipiteesi. Se on tärkeä. Jos joku asia jäi mietityttämään, jatka juttelua tutun aikuisen kanssa. Olet huippu ja tärkeä!"
         android:textAlignment="center"
         android:textColor="#964B9D"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/themesListView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUserButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView9"
         android:layout_width="213dp"
         android:layout_height="105dp"
         android:layout_marginStart="2dp"
@@ -103,7 +71,7 @@
         app:srcCompat="@drawable/elementti1" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView10"
         android:layout_width="177dp"
         android:layout_height="167dp"
         android:layout_marginTop="-10dp"
@@ -113,7 +81,7 @@
         app:srcCompat="@drawable/elementti5" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView11"
         android:layout_width="283dp"
         android:layout_height="326dp"
         android:layout_marginBottom="-10dp"
@@ -122,7 +90,7 @@
         app:srcCompat="@drawable/elementti2" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView12"
         android:layout_width="133dp"
         android:layout_height="241dp"
         android:layout_marginEnd="-5dp"

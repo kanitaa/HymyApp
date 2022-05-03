@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HymyApp">
         <activity
+            android:name=".ThanksForAnsweringActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewUserActivity"
             android:exported="false" />
         <activity

@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         } else { // If the user is known, greeting text is visible, the quiz list is visible and the continue button is hidden
             continueButton.setVisibility((GONE));
             lv.setVisibility(View.VISIBLE);
-            greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta!");
+            greetUser.setText("Moi " + userPrefGet.getString("nameKey", "") + " " + userPrefGet.getInt("ageKey", 0) + "-vuotta ja tervetuloa kertomaan mielipiteesi lasten asioista!");
             greetUser.setVisibility(View.VISIBLE);
         }
     }
