@@ -46,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Hide the action bar in activity.
         getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
         Bundle b = getIntent().getExtras();
