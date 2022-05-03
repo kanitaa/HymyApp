@@ -72,6 +72,7 @@ public class ChartActivity extends AppCompatActivity {
      */
     public void activateInvolvementQuestions(View view){
         if(!involvementChartActive){
+            pathNumber = 1;
             GameActivity.dbpath = "involvementQuestions/question"+pathNumber;
             //get database values for charts
             base = new GetFirebase();
@@ -89,6 +90,7 @@ public class ChartActivity extends AppCompatActivity {
      */
     public void activateRightsQuestions(View view){
         if(!rightsChartActive){
+            pathNumber = 1;
             GameActivity.dbpath = "rightsQuestions/question"+pathNumber;
             //get database values for charts
             base = new GetFirebase();
