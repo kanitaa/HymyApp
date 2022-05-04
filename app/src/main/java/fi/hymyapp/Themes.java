@@ -3,6 +3,8 @@ package fi.hymyapp;
 /**
  * @author Daniel Hewugenhauser
  * @version 1
+ *
+ * Theme object for different type of themes in the game.
  */
 public class Themes {
 

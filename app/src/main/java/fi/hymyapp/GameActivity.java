@@ -17,6 +17,8 @@ import java.util.List;
 /**
  * @author Janita Korhonen
  * @author Daniel Heugenhauser
+ *
+ * A class for showing and answering questions.
  */
 
 public class GameActivity extends AppCompatActivity {
@@ -43,6 +45,11 @@ public class GameActivity extends AppCompatActivity {
     //score counter for end results
     Score score = new Score();
 
+    /**
+     * Sets all UI elements and database elements in the activity.
+     *  Creates a list of answer string objects to show after every question.
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
