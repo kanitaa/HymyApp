@@ -32,15 +32,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA = "com.example.myfirstapp.MESSAGE";
     User user = new User();
 
-    /**
-     * Creates a MediaPlayer variable for the sound effects in the buttons.
-     * Sets ListView element for the main activity layout.
-     * Sets a new ArrayAdapter witch uses list item layout. And get sets all the themes from the singleton class into the ListView.
-     * Sets a Listener for the list items.
-     * <p>
-     * This method is called when MainActivity is created
-     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

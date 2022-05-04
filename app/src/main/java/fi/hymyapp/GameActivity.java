@@ -95,6 +95,10 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Click function for first option button.
+     * Sets mediaplayer variable for button sounds.
+     * Sets click counters for the buttons.
+     * Sets score counters for the buttons.
+     * Soundeffects are applied for correct, and wrong answers.
      * @param view Parameter for interface components.
      */
     //onclick functions for option buttons
@@ -124,6 +128,10 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Click function for second option button.
+     * Sets mediaplayer variable for button sounds.
+     * Sets click counters for the buttons.
+     * Sets score counters for the buttons.
+     * Soundeffects are applied for correct, and wrong answers.
      * @param view Parameter for interface components.
      */
     public void option2(View view){
@@ -147,6 +155,10 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Click function for third option button.
+     * Sets mediaplayer variable for button sounds.
+     * Sets click counters for the buttons.
+     * Sets score counters for the buttons.
+     * Soundeffects are applied for correct, and wrong answers.
      * @param view Parameter for interface components.
      */
     public void option3(View view){
@@ -171,7 +183,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Function for changing questions when answered.
+     * Function for changing questions when answers button is clicked.
+     * When path number reaches 10 last activity is triggered.
+     * Sets correct path number for firebase database, and sets button texts and question correctly.
      */
     private void changeQuestion(){
         if(pathNumber!=10)
