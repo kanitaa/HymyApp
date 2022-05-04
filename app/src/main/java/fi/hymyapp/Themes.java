@@ -3,6 +3,8 @@ package fi.hymyapp;
 /**
  * @author Daniel Hewugenhauser
  * @version 1
+ *
+ * Theme object for different type of themes in the game.
  */
 public class Themes {
 
@@ -21,14 +23,14 @@ public class Themes {
         this.path=path;
     }
     /**
-     *
+     *Return themes names as a string in MainActivity list view.
      * @return Returns name of the theme.
      */
     public String toString(){
         return name;
     }
     /**
-     *
+     * Returns data path as a string for firebase data path.
      * @return Return the path value of the theme.
      */
     public String getDatapath(){
