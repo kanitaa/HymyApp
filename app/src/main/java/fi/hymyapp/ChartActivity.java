@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * @author Janita Korhonen
  * @version 1
- * A class for final activity in the application.
+ * A class for chart activity in the application.
  * Drawing barchart based on Firebase data.
  */
 public class ChartActivity extends AppCompatActivity {

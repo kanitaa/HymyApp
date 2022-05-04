@@ -17,6 +17,8 @@ import java.util.List;
 /**
  * @author Janita Korhonen
  * @author Daniel Heugenhauser
+ * A class for game activity in the application.
+ * Shows questions and answers based on Firebase data.
  */
 
 public class GameActivity extends AppCompatActivity {
