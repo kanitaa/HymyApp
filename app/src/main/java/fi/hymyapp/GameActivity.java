@@ -185,7 +185,7 @@ public class GameActivity extends AppCompatActivity {
     /**
      * Function for changing questions when answers button is clicked.
      * When path number reaches 10 last activity is triggered.
-     * Sets correct path number for firebase database, and sets button texts and question correctly.
+     * Sets correct path number for firebase database, and sets button texts and question texts correctly.
      */
     private void changeQuestion(){
         if(pathNumber!=10)
@@ -208,6 +208,7 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Disables all UI elements and shows the answer to that question as a button.
+     * Increases list index for the next answer in the answers list.
      */
     // Close all Ui elements and show results button
     private void answerView(){
@@ -221,8 +222,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Disables a
-     * @param view
+     * Disables the answer text UI element and shows the question elements again.
+     * Calls for the changeQuestion method.
+     * @param view Parameter for interface components.
      */
     //Show all Ui elements and close results button
     public void nextQuestion(View view){
