@@ -116,7 +116,7 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
-            score.increasePoints(2);
+            score.increasePoints(1);
             mp.start();
         }else{
             ep.start();
@@ -145,7 +145,7 @@ public class GameActivity extends AppCompatActivity {
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
-            score.increasePoints(2);
+            score.increasePoints(1);
             mp.start();
         }else{
             ep.start();
@@ -172,7 +172,7 @@ public class GameActivity extends AppCompatActivity {
         //Get correct answer from getFirebase class.
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op3")){
-            score.increasePoints(2);
+            score.increasePoints(1);
             //Correct answer bell sound.
             mp.start();
         }else{
