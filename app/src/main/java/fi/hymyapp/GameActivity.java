@@ -47,7 +47,7 @@ public class GameActivity extends AppCompatActivity {
 
     /**
      * Sets all UI elements and database elements in the activity.
-     *  Creates a list of answer string objects to show after every question.
+     * Creates a list of answer string objects to show after every question.
      * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
      */
     @Override
@@ -124,8 +124,10 @@ public class GameActivity extends AppCompatActivity {
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
             score.increasePoints(1);
+            //correct answer bell sound
             mp.start();
         }else{
+            //wrong answer bell sound
             ep.start();
         }
 
@@ -153,8 +155,10 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
             score.increasePoints(1);
+            //correct answer bell sound
             mp.start();
         }else{
+            //wrong answer bell sound
             ep.start();
         }
         answerView();
