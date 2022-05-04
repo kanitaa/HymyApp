@@ -89,7 +89,7 @@ public class NewUserActivity extends AppCompatActivity {
         } else if (name.length() > 12 || name.length() < 3) { // Name must be between 3-12 characters long
             editName.setError("Nimen pitää olla 3-12 kirjainta.");
             return false;
-        } else if (!name.matches("[a-zA-Z. -]*")) { // Name must have only these characters
+        } else if (!name.matches("[a-zA-ZÄÖÅäåö. -]*")) { // Name must have only these characters
             editName.setError("Käytä vain kirjaimia, välilyöntiä tai merkkejä . ja -");
             return false;
         } else {
