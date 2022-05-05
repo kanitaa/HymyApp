@@ -157,7 +157,7 @@ public class GetFirebase {
      * <p>
      * This method is called after new GetFirebase class has been created
      */
-    //add listeners to all database references
+    //source: https://firebase.google.com/docs/database/admin/retrieve-data
     public void setCounters(TextView statementView) {
         //QUESTION TEXT, add listener which triggers when data is changed
         statement.addValueEventListener(new ValueEventListener() {

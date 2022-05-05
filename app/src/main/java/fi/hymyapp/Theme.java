@@ -20,7 +20,7 @@ public class Theme {
     private static final Theme ourInstance = new Theme();
 
     /**
-     *
+     * Gets the corresponding instance from the user input.
      * @return  Single instance from the Theme class.
      */
     public static Theme getInstance(){

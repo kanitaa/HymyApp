@@ -17,8 +17,8 @@ import java.util.List;
 /**
  * @author Janita Korhonen
  * @author Daniel Heugenhauser
- * A class for game activity in the application.
- * Shows questions and answers based on Firebase data.
+ *
+ * A class for showing and answering questions.
  */
 
 public class GameActivity extends AppCompatActivity {
@@ -45,6 +45,11 @@ public class GameActivity extends AppCompatActivity {
     //score counter for end results
     Score score = new Score();
 
+    /**
+     * Sets all UI elements and database elements in the activity.
+     * Creates a list of answer string objects to show after every question.
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,8 +124,10 @@ public class GameActivity extends AppCompatActivity {
         if(base.getCorrectAnswer().equals("op1")){
             //give score after right answer WIP
             score.increasePoints(1);
+            //correct answer bell sound
             mp.start();
         }else{
+            //wrong answer bell sound
             ep.start();
         }
 
@@ -148,8 +155,10 @@ public class GameActivity extends AppCompatActivity {
         //Increase points by 2 if correct answer is right
         if(base.getCorrectAnswer().equals("op2")){
             score.increasePoints(1);
+            //correct answer bell sound
             mp.start();
         }else{
+            //wrong answer bell sound
             ep.start();
         }
         answerView();

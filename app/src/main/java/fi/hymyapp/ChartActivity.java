@@ -119,6 +119,7 @@ public class ChartActivity extends AppCompatActivity {
      * <p>
      * This method is called when player wants to see the answer data from Firebase.
      */
+    //source: https://www.youtube.com/watch?v=dL8VyvLJ2d8&ab_channel=CamboTutorial
     private void drawChart(){
         //remove old chart
         barChart.removeAllViews();

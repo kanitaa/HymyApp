@@ -33,12 +33,17 @@ public class MainActivity extends AppCompatActivity {
     User user = new User();
 
 
+    /**
+     * Hide the support action bar
+     * Add custon listView adapter to show themes from singleton class.
+     * Add listener to listView.
+     * @param savedInstanceState a reference to a Bundle object that is passed into the onCreate method of every Android Activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample3);
         ListView lv =findViewById(R.id.themesListView);
         //Custom layout for list items.
         lv.setAdapter(new ArrayAdapter<Themes>(this,
