@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * @author Janita Korhonen
  * @version 1
- * A class for final activity in the application.
+ * A class for chart activity in the application.
  * Drawing barchart based on Firebase data.
  */
 public class ChartActivity extends AppCompatActivity {
@@ -119,6 +119,7 @@ public class ChartActivity extends AppCompatActivity {
      * <p>
      * This method is called when player wants to see the answer data from Firebase.
      */
+    //source: https://www.youtube.com/watch?v=dL8VyvLJ2d8&ab_channel=CamboTutorial
     private void drawChart(){
         //remove old chart
         barChart.removeAllViews();
