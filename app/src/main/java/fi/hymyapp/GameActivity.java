@@ -110,6 +110,7 @@ public class GameActivity extends AppCompatActivity {
      */
     //onclick functions for option buttons
     public void option1(View view){
+        // Source https://www.geeksforgeeks.org/how-to-add-audio-files-to-android-app-in-android-studio/
         //Sound for button click
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
