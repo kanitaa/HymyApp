@@ -8,21 +8,20 @@
 
     <Button
         android:id="@+id/goToChartsButton"
-        android:layout_width="96dp"
-        android:layout_height="58dp"
+        android:layout_width="137dp"
+        android:layout_height="63dp"
         android:background="@drawable/rounded_corners2"
         android:onClick="openChartActivity"
         android:soundEffectsEnabled="true"
         android:text="Vastaukset"
         android:textAlignment="center"
-        android:textSize="8sp"
+        android:textSize="12sp"
         app:backgroundTint="@color/violet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintVertical_bias="0.958" />
 
     <ListView
         android:id="@+id/themesListView"
@@ -35,15 +34,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greetUserText" />
+        app:layout_constraintTop_toBottomOf="@+id/greetText" />
 
     <Button
-        android:id="@+id/newUserButton"
+        android:id="@+id/startButton"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:background="@drawable/round"
         android:fontFamily="@font/firasans_bold"
-        android:onClick="openNewUserActivity"
+        android:onClick="start"
         android:soundEffectsEnabled="true"
         android:text="Aloita"
         android:textAllCaps="false"
@@ -58,30 +57,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.729" />
 
-    <Button
-        android:id="@+id/resetPrefsButton"
-        android:layout_width="96dp"
-        android:layout_height="58dp"
-        android:background="@drawable/rounded_corners2"
-        android:onClick="resetPrefs"
-        android:soundEffectsEnabled="true"
-        android:text="@string/resetPrefsButton"
-        android:textAlignment="center"
-        android:textSize="11sp"
-        app:backgroundTint="@color/violet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
-
     <TextView
-        android:id="@+id/greetUserText"
+        android:id="@+id/greetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/firasans_bold"
-        android:text="Moi käyttäjä"
+        android:text="Tervetuloa kertomaan tärkeitä mielipiteitä lasten asioista!"
         android:textAlignment="center"
         android:textColor="#964B9D"
         android:textSize="24sp"
@@ -137,7 +118,7 @@
         android:id="@+id/logoImage"
         android:layout_width="136dp"
         android:layout_height="205dp"
-        app:layout_constraintBottom_toTopOf="@+id/newUserButton"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

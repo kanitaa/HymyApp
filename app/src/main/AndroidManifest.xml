@@ -13,9 +13,6 @@
             android:name=".ThanksForAnsweringActivity"
             android:exported="false" />
         <activity
-            android:name=".NewUserActivity"
-            android:exported="false" />
-        <activity
             android:name=".ChartActivity"
             android:exported="false" />
         <activity
