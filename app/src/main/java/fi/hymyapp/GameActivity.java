@@ -38,7 +38,7 @@ public class GameActivity extends AppCompatActivity {
     Button aText;
     Button op1button;
     Button op2button;
-    Button op3button;
+    //Button op3button;
 
     private static final String TAG ="Firebase" ;
 
@@ -63,14 +63,14 @@ public class GameActivity extends AppCompatActivity {
         statementView = (TextView) findViewById(R.id.statementText);
         op1button=(Button) findViewById(R.id.option1Button);
         op2button=(Button)findViewById(R.id.option2Button);
-        op3button=(Button)findViewById(R.id.option3Button);
+        //op3button=(Button)findViewById(R.id.option3Button);
 
 
         dbpath = Theme.getInstance().getThemes().get(i).getDatapath()+"/question"+pathNumber;
         //save og dbpath info to be able to access it later again
         dbTemp = Theme.getInstance().getThemes().get(i).getDatapath()+"/question";
         base = new GetFirebase();
-        base.setButtons(op1button, op2button, op3button);
+        base.setButtons(op1button, op2button);
         base.setCounters(statementView);
         //Hide answer button.
         aText.setVisibility(View.INVISIBLE);
@@ -173,7 +173,7 @@ public class GameActivity extends AppCompatActivity {
      * Soundeffects are applied for correct, and wrong answers.
      * @param view Parameter for interface components.
      */
-    public void option3(View view){
+    /* public void option3(View view){
         final MediaPlayer mp = MediaPlayer.create(this,R.raw.sample);
         final MediaPlayer ep = MediaPlayer.create(this,R.raw.sample2);
         int newValue = base.getOp3Value()+1;
@@ -192,7 +192,7 @@ public class GameActivity extends AppCompatActivity {
             ep.start();
         }
         answerView();
-    }
+    }*/
 
     /**
      * Function for changing questions when answers button is clicked.
@@ -207,7 +207,7 @@ public class GameActivity extends AppCompatActivity {
             //change db references to match correct question number
             dbpath = dbTemp+pathNumber;
             base = new GetFirebase();
-            base.setButtons(op1button, op2button, op3button);
+            base.setButtons(op1button, op2button);
             base.setCounters(statementView);
 
         }else{
@@ -227,7 +227,7 @@ public class GameActivity extends AppCompatActivity {
         statementView.setVisibility(View.INVISIBLE);
         op1button.setVisibility(View.INVISIBLE);
         op2button.setVisibility(View.INVISIBLE);
-        op3button.setVisibility(View.INVISIBLE);
+        //op3button.setVisibility(View.INVISIBLE);
         aText.setVisibility(View.VISIBLE);
         aText.setText(answerList.get(listIndex));
         listIndex+=1;
@@ -244,7 +244,7 @@ public class GameActivity extends AppCompatActivity {
         statementView.setVisibility(View.VISIBLE);
         op1button.setVisibility(View.VISIBLE);
         op2button.setVisibility(View.VISIBLE);
-        op3button.setVisibility(View.VISIBLE);
+        //op3button.setVisibility(View.VISIBLE);
         changeQuestion();
     }
 }

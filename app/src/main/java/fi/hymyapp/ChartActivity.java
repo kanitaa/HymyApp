@@ -109,7 +109,7 @@ public class ChartActivity extends AppCompatActivity {
     public void setChart(){
             op1 = base.getOp1();
             op2 = base.getOp2();
-            op3 = base.getOp3();
+           // op3 = base.getOp3();
             drawChart();
             updateFirebase();
     }
@@ -127,7 +127,7 @@ public class ChartActivity extends AppCompatActivity {
         barArrayList = new ArrayList();
         barArrayList.add(new BarEntry(1f,base.getOp1Value()));
         barArrayList.add(new BarEntry(2f,base.getOp2Value()));
-        barArrayList.add(new BarEntry(3f,base.getOp3Value()));
+        //barArrayList.add(new BarEntry(3f,base.getOp3Value()));
         BarDataSet barDataSet = new BarDataSet(barArrayList,base.getStatementText());
         BarData barData = new BarData(barDataSet);
 

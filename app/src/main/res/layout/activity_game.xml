@@ -56,24 +56,6 @@
         app:backgroundTint="@color/violet" />
 
     <Button
-        android:id="@+id/option3Button"
-        android:layout_height="wrap_content"
-        android:layout_width="150dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="150dp"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="#D30BDA"
-        android:fontFamily="@font/firasans_regular"
-        android:onClick="option3"
-        android:soundEffectsEnabled="false"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/option2Button"
-        app:backgroundTint="@color/green" />
-
-    <Button
         android:id="@+id/answerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,6 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="213dp"

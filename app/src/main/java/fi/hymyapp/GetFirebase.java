@@ -35,23 +35,23 @@ public class GetFirebase {
     private DatabaseReference correctAnswer;
     private DatabaseReference op1;
     private DatabaseReference op2;
-    private DatabaseReference op3;
+   // private DatabaseReference op3;
 
     //values
     private String op1Text;
     private String op2Text;
-    private String op3Text;
+    //private String op3Text;
     private String correctAnswerText;
     private String statementText;
     private int op1Value;
     private int op2Value;
-    private int op3Value;
+    //private int op3Value;
     private int totalValue;
 
 
     private Button op1button;
     private Button op2button;
-    private Button op3button;
+   // private Button op3button;
 
     /**
      * Constructor for GetFirebase class.
@@ -62,12 +62,12 @@ public class GetFirebase {
         this.statementText="";
         this.op1Value=0;
         this.op2Value=0;
-        this.op3Value=0;
+        //this.op3Value=0;
         this.totalValue=0;
         this.correctAnswerText="";
         this.op1Text="";
         this.op2Text="";
-        this.op3Text="";
+       // this.op3Text="";
 
         //link database references to correct path in database
         op1Counter = database.getReference(GameActivity.dbpath+"/zOp1Count");
@@ -78,7 +78,7 @@ public class GetFirebase {
         correctAnswer=database.getReference(GameActivity.dbpath+"/correctAnswer");
         op1=database.getReference(GameActivity.dbpath+"/op1");
         op2=database.getReference(GameActivity.dbpath+"/op2");
-        op3=database.getReference(GameActivity.dbpath+"/op3");
+        //op3=database.getReference(GameActivity.dbpath+"/op3");
 
     }
 
@@ -96,9 +96,7 @@ public class GetFirebase {
     public DatabaseReference getOp2Counter(){
         return op2Counter;
     }
-    public DatabaseReference getOp3Counter(){
-        return op3Counter;
-    }
+    /*public DatabaseReference getOp3Counter(){return op3Counter;}*/
     public DatabaseReference getTotalCounter(){
         return totalCounter;
     }
@@ -116,12 +114,8 @@ public class GetFirebase {
     public int getOp2Value(){
         return op2Value;
     }
-    public int getOp3Value(){
-        return op3Value;
-    }
-    public int getTotalValue(){
-        return totalValue;
-    }
+    /*public int getOp3Value(){ return op3Value; }*/
+    public int getTotalValue(){ return totalValue;}
 
     /**
      * Returns statementText.
@@ -136,7 +130,7 @@ public class GetFirebase {
     public String getCorrectAnswer(){return correctAnswerText; }
     public String getOp1(){return op1Text;}
     public String getOp2(){return op2Text;}
-    public String getOp3(){return op3Text;}
+   /* public String getOp3(){return op3Text;}*/
 
 
     /**
@@ -145,10 +139,10 @@ public class GetFirebase {
      * <p>
      * This method is called after new GetFirebase class has been created in GameActivity.java
      */
-    public void setButtons(Button op1, Button op2, Button op3){
+    public void setButtons(Button op1, Button op2){
         this.op1button=op1;
         this.op2button=op2;
-        this.op3button=op3;
+       //this.op3button=op3;
     }
 
 
@@ -208,7 +202,7 @@ public class GetFirebase {
             }
         });
         // Read from the database OPTION3
-        op3Counter.addValueEventListener(new ValueEventListener() {
+       /* op3Counter.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 op3Value = dataSnapshot.getValue(Integer.class);
@@ -220,7 +214,7 @@ public class GetFirebase {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
-        });
+        });*/
         // Read from the database TOTAL COUNTER
         totalCounter.addValueEventListener(new ValueEventListener() {
             @Override
@@ -280,7 +274,7 @@ public class GetFirebase {
             }
         });
         // Read option 3 from the database
-        op3.addValueEventListener(new ValueEventListener() {
+        /*op3.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot datasnapshot) {
                 op3Text=datasnapshot.getValue(String.class);
@@ -293,6 +287,6 @@ public class GetFirebase {
             public void onCancelled(DatabaseError error) {
                 Log.w(TAG,"Failed to read value.",error.toException());
             }
-        });
+        });*/
     }
 }
