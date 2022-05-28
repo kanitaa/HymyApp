@@ -240,11 +240,17 @@ public class GameActivity extends AppCompatActivity {
      */
     //Show all Ui elements and close results button
     public void nextQuestion(View view){
-        aText.setVisibility(View.INVISIBLE);
-        statementView.setVisibility(View.VISIBLE);
-        op1button.setVisibility(View.VISIBLE);
-        op2button.setVisibility(View.VISIBLE);
-        //op3button.setVisibility(View.VISIBLE);
-        changeQuestion();
+        if(pathNumber!=10){
+            aText.setVisibility(View.INVISIBLE);
+            statementView.setVisibility(View.VISIBLE);
+            op1button.setVisibility(View.VISIBLE);
+            op2button.setVisibility(View.VISIBLE);
+            //op3button.setVisibility(View.VISIBLE);
+            changeQuestion();
+        }else{
+            changeQuestion();
+        }
+
+
     }
 }

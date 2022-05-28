@@ -143,7 +143,7 @@ public class ChartActivity extends AppCompatActivity {
 
         //top of the chart, 3 label amount because 3 answer options
         XAxis valAxis = barChart.getXAxis();
-        valAxis.setLabelCount(3);
+        valAxis.setLabelCount(2);
         //set values for labels here
         valAxis.setValueFormatter(new MyAxisFormatter());
         valAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -177,10 +177,9 @@ public class ChartActivity extends AppCompatActivity {
         public String getFormattedValue(float value) {
             if(value==1){
                 return op1;
-            }else if(value==2){
+            }
+            else{
                 return op2;
-            }else{
-                return op3;
             }
         }
     }

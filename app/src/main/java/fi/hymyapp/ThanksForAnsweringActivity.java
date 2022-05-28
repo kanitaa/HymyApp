@@ -33,18 +33,21 @@ public class ThanksForAnsweringActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_thanks_for_answering);
-
-        scoreChecked = false;
         scoreText = findViewById(R.id.scoreInformationText);
-        thankYouForAnsweringText = findViewById(R.id.thanksForAnsweringText);
-        thankYouForAnsweringText.setVisibility(View.GONE);
+    /*      scoreChecked = false;
 
-        //get score from previous activity
+
+       thankYouForAnsweringText.setVisibility(View.GONE);
+
+       //get score from previous activity
         Bundle b = getIntent().getExtras();
         String scoreAmount = b.getString(EXTRA,"");
         // and set the result text from score class it to a text element
         score = new Score(Integer.parseInt(scoreAmount));
-        scoreText.setText(score.checkResult());
+        scoreText.setText(score.checkResult());*/
+        scoreText.setVisibility(View.GONE);
+        thankYouForAnsweringText = findViewById(R.id.thanksForAnsweringText);
+        thankYouForAnsweringText.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -56,14 +59,14 @@ public class ThanksForAnsweringActivity extends AppCompatActivity {
     public void backToMainActivity(View view) { // This function checks if score has been checked and swaps text elements accordingly.
         // After checking score and getting a thank you message, the user is taken back to Main Activity with the next button press.
 
-        if(scoreChecked == false) {
+     /*   if(scoreChecked == false) {
             scoreText.setVisibility(View.GONE);
             thankYouForAnsweringText.setVisibility(View.VISIBLE);
             scoreChecked = true;
-        } else {
+        } else {*/
             Intent backToMainActivity = new Intent(ThanksForAnsweringActivity.this, MainActivity.class);
             startActivity(backToMainActivity);
-        }
+      //  }
     }
 
     /**

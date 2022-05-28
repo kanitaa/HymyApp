@@ -11,8 +11,8 @@ android {
         applicationId "fi.hymyapp"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "6.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,7 +42,7 @@ dependencies {
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    compileOnly files("C:/Users/taruv/AppData/Local/Android/Sdk/platforms/android-32/android.jar")
+    compileOnly files("C:/Users/janit/AppData/Local/Android/Sdk/platforms/android-32/android.jar")
 }
 
 
