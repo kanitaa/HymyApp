@@ -26,13 +26,13 @@
 
     <TextView
         android:id="@+id/statementText"
-        android:layout_height="wrap_content"
         android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/firasans_bold"
         android:text="Hello World!"
         android:textAlignment="center"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/violet"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
         android:background="@drawable/rounded_corners2"
-        android:onClick="nextQuestion"
         android:paddingHorizontal="40dp"
         android:soundEffectsEnabled="true"
         android:text="Button"
@@ -69,6 +68,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/rounded_corners2"
+        android:onClick="nextQuestion"
+        android:paddingHorizontal="40dp"
+        android:soundEffectsEnabled="true"
+        android:text="Seuraava"
+        app:backgroundTint="@color/violet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerButton" />
 
     <ImageView
         android:id="@+id/imageView"

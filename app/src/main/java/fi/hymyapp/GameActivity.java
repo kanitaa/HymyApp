@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
 
     //set statement text here for ui
     TextView statementView;
+    Button nextButton;
     Button aText;
     Button op1button;
     Button op2button;
@@ -58,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         Bundle b = getIntent().getExtras();
         int i =b.getInt(EXTRA,0);
-
+        nextButton=(Button)findViewById(R.id.nextButton);
         aText=(Button) findViewById(R.id.answerButton);
         statementView = (TextView) findViewById(R.id.statementText);
         op1button=(Button) findViewById(R.id.option1Button);
@@ -72,8 +73,9 @@ public class GameActivity extends AppCompatActivity {
         base = new GetFirebase();
         base.setButtons(op1button, op2button);
         base.setCounters(statementView);
-        //Hide answer button.
+        //Hide answer button, and next button.
         aText.setVisibility(View.INVISIBLE);
+        nextButton.setVisibility(View.INVISIBLE);
         //Set answers to questions in the answersList.
         if(Theme.getInstance().getThemes().get(i).getDatapath().equals("involvementQuestions")) {
             answerList.add("Leikki on jokaisella omanlaista. Lapset saavat päättää leikistä, kunhan se ei aiheuta vaaraa tai uhkaa millekään tai kenellekään.");
@@ -229,6 +231,7 @@ public class GameActivity extends AppCompatActivity {
         op2button.setVisibility(View.INVISIBLE);
         //op3button.setVisibility(View.INVISIBLE);
         aText.setVisibility(View.VISIBLE);
+        nextButton.setVisibility(View.VISIBLE);
         aText.setText(answerList.get(listIndex));
         listIndex+=1;
     }
@@ -242,6 +245,7 @@ public class GameActivity extends AppCompatActivity {
     public void nextQuestion(View view){
         if(pathNumber!=10){
             aText.setVisibility(View.INVISIBLE);
+            nextButton.setVisibility(View.INVISIBLE);
             statementView.setVisibility(View.VISIBLE);
             op1button.setVisibility(View.VISIBLE);
             op2button.setVisibility(View.VISIBLE);

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HymyApp</string>
+    <string name="app_name">Lapset on tärkeitä</string>
     <string name="edit_Age">ikäsi</string>
     <string name="edit_name">nimesi</string>
     <string name="resetPrefsButton">Uusi käyttäjä</string>

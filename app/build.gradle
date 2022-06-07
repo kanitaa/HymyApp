@@ -42,7 +42,7 @@ dependencies {
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    compileOnly files("C:/Users/janit/AppData/Local/Android/Sdk/platforms/android-32/android.jar")
+    compileOnly files("C:/Users/danie/AppData/Local/Android/Sdk/platforms/android-32/android.jar")
 }
 
 
